@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Nepal Festival Guide - Discover Traditional Celebrations |
+      ネパール祭りガイド - 伝統的な祝祭を発見
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+      🌙
+    </button>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">
+      <span>↑</span>
+    </button>
+
+    <!-- Particles Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo-section">
+            <img
+              src="images/map.jpg"
+              alt="Nepal Culture Guide Logo"
+              class="logo"
+            />
+            <div class="brand">
+              <div class="brand-title">
+                Nepal Festival Guide | ネパール祭りガイド
+              </div>
+              <div class="brand-subtitle">
+                Discover Traditional Celebrations | 伝統的な祝祭を発見
+              </div>
+            </div>
+          </div>
+
+          <nav>
+            <ul>
+              <li>
+                <a href="../index.html" class="nav-link"
+                  >TOP-PAGE</a
+                >
+              </li>
+              <li></li>
+              <li>
+                <a href="festival.html" class="nav-link"
+                  >All Festivals | すべての祭り</a
+                >
+              </li>
+              <li><a href="help.html" class="nav-button">Help | ヘルプ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero glassmorphism">
+        <div class="container">
+          <div class="hero-content fade-in-up">
+            <h1 class="neon-glow">
+              Discover Nepal's Rich Festival Heritage |
+              ネパールの豊かな祭り文化を発見
+            </h1>
+            <p>
+              <strong>English:</strong> Immerse yourself in the vibrant
+              traditions and cultural celebrations that make Nepal a unique
+              destination. Explore festivals that have been celebrated for
+              generations.<br /><br /><strong>日本語:</strong>
+              ネパールを独特な目的地にする活気ある伝統と文化的祝祭に身を浸してください。何世代にもわたって祝われてきた祭りを探求してください。
+            </p>
+            <a href="festival.html" class="cta-button"
+              >Explore Festivals | 祭りを探る</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="container">
+          <div class="section-header fade-in-up">
+            <h2 class="section-title">
+              What You'll Discover | あなたが発見するもの
+            </h2>
+            <p class="section-subtitle">
+              <strong>English:</strong> From ancient religious ceremonies to
+              colorful cultural celebrations, Nepal's festivals offer a window
+              into the soul of the Himalayas.<br /><br /><strong
+                >日本語:</strong
+              >
+              古代の宗教儀式からカラフルな文化的祝祭まで、ネパールの祭りはヒマラヤの魂への窓を提供します。
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div
+              class="feature-card fade-in-up clickable-card card-3d"
+              onclick="toggleSection('festivals')"
+            >
+              <div class="feature-icon">🎭</div>
+              <h3 class="feature-title">
+                Traditional Festivals | 伝統的な祭り
+              </h3>
+              <p class="feature-description">
+                <strong>English:</strong> Experience the spiritual and cultural
+                significance of Nepal's most important celebrations, from
+                Dashain to Tihar.<br /><br /><strong>日本語:</strong>
+                ダサインからティハルまで、ネパールの最も重要な祝祭の精神的・文化的意義を体験してください。
+              </p>
+            </div>
+
+            <div
+              class="feature-card fade-in-up clickable-card card-3d"
+              onclick="toggleSection('cuisine')"
+            >
+              <div class="feature-icon">🍽️</div>
+              <h3 class="feature-title">Cultural Cuisine | 文化的料理</h3>
+              <p class="feature-description">
+                <strong>English:</strong> Discover traditional Nepalese dishes
+                and festive foods that are prepared during these special
+                celebrations.<br /><br /><strong>日本語:</strong>
+                これらの特別な祝祭中に準備される伝統的なネパール料理と祝祭料理を発見してください。
+              </p>
+            </div>
+
+            <div
+              class="feature-card fade-in-up clickable-card card-3d"
+              onclick="toggleSection('guide')"
+            >
+              <div class="feature-icon">🌏</div>
+              <h3 class="feature-title">
+                Bilingual Guide | バイリンガルガイド
+              </h3>
+              <p class="feature-description">
+                <strong>English:</strong> Access comprehensive information in
+                both English and Japanese, making it easy for international
+                visitors to understand.<br /><br /><strong>日本語:</strong>
+                英語と日本語の両方で包括的な情報にアクセスし、国際的な訪問者が理解しやすくします。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Traditional Festivals Section -->
+      <section class="traditional-festivals toggle-section" id="festivals">
+        <div class="container">
+          <div class="section-header fade-in-up">
+            <h2 class="section-title">Traditional Festivals | 伝統的な祭り</h2>
+            <p class="section-subtitle">
+              <strong>English:</strong> Explore Nepal's most important
+              traditional festivals, each with its own unique significance and
+              celebrations.<br /><br /><strong>日本語:</strong>
+              それぞれ独自の意義と祝祭を持つネパールの最も重要な伝統的な祭りを探求してください。
+            </p>
+          </div>
+
+          <div class="festivals-grid">
+            <a href="dashain.html" class="festival-card fade-in-up">
+              <img
+                src="images/dashain-social.png"
+                alt="Dashain Festival"
+                class="festival-image"
+              />
+              <div class="festival-content">
+                <h3 class="festival-title">Dashain | ダサイン</h3>
+                <p class="festival-description">
+                  <strong>English:</strong> Nepal's biggest festival celebrating
+                  the victory of good over evil.<br /><strong>日本語:</strong>
+                  善が悪に勝利することを祝うネパール最大の祭り。
+                </p>
+              </div>
+            </a>
+
+            <a href="tihar.html" class="festival-card fade-in-up">
+              <img
+                src="images/tihar-social.jpg"
+                alt="Tihar Festival"
+                class="festival-image"
+              />
+              <div class="festival-content">
+                <h3 class="festival-title">Tihar | ティハル</h3>
+                <p class="festival-description">
+                  <strong>English:</strong> Festival of lights celebrating the
+                  bond between humans and nature.<br /><strong>日本語:</strong>
+                  人間と自然の絆を祝う光の祭り。
+                </p>
+              </div>
+            </a>
+
+            <a href="holi.html" class="festival-card fade-in-up">
+              <img
+                src="images/holi.jpg"
+                alt="Holi Festival"
+                class="festival-image"
+              />
+              <div class="festival-content">
+                <h3 class="festival-title">Holi | ホーリー</h3>
+                <p class="festival-description">
+                  <strong>English:</strong> Colorful spring festival celebrating
+                  joy and new beginnings.<br /><strong>日本語:</strong>
+                  喜びと新しい始まりを祝うカラフルな春の祭り。
+                </p>
+              </div>
+            </a>
+
+            <a href="teej.html" class="festival-card fade-in-up">
+              <img
+                src="images/teej.jpg"
+                alt="Teej Festival"
+                class="festival-image"
+              />
+              <div class="festival-content">
+                <h3 class="festival-title">Teej | ティージ</h3>
+                <p class="festival-description">
+                  <strong>English:</strong> Women's festival celebrating marital
+                  bliss and devotion.<br /><strong>日本語:</strong>
+                  結婚の幸せと献身を祝う女性の祭り。
+                </p>
+              </div>
+            </a>
+
+            <a href="buddha-jayanti.html" class="festival-card fade-in-up">
+              <img
+                src="images/buddha.jpg"
+                alt="Buddha Jayanti"
+                class="festival-image"
+              />
+              <div class="festival-content">
+                <h3 class="festival-title">
+                  Buddha Jayanti | ブッダ・ジャヤンティ
+                </h3>
+                <p class="festival-description">
+                  <strong>English:</strong> Celebration of Buddha's birth,
+                  enlightenment, and death.<br /><strong>日本語:</strong>
+                  ブッダの誕生、悟り、死を祝う祭り。
+                </p>
+              </div>
+            </a>
+
+            <a href="chhath.html" class="festival-card fade-in-up">
+              <img
+                src="images/chhath.jpg"
+                alt="Chhath Festival"
+                class="festival-image"
+              />
+              <div class="festival-content">
+                <h3 class="festival-title">Chhath | チャット</h3>
+                <p class="festival-description">
+                  <strong>English:</strong> Ancient sun worship festival with
+                  rigorous rituals.<br /><strong>日本語:</strong>
+                  厳格な儀式を持つ古代の太陽崇拝祭り。
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cultural Cuisine Section -->
+      <section class="cultural-cuisine toggle-section" id="cuisine">
+        <div class="container">
+          <div class="section-header fade-in-up">
+            <h2 class="section-title">Cultural Cuisine | 文化的料理</h2>
+            <p class="section-subtitle">
+              <strong>English:</strong> Discover the rich flavors of Nepalese
+              cuisine, from traditional festival foods to everyday
+              delicacies.<br /><br /><strong>日本語:</strong>
+              伝統的な祭りの食べ物から日常の珍味まで、ネパール料理の豊かな味を発見してください。
+            </p>
+          </div>
+
+          <div class="cuisine-grid">
+            <div class="cuisine-card fade-in-up">
+              <div class="dashain-images">
+                <img
+                  src="images/dashain123.png"
+                  alt="Dashain Food 1"
+                  class="cuisine-image clickable-image"
+                />
+                <img
+                  src="images/dashain1234.png"
+                  alt="Dashain Food 2"
+                  class="cuisine-image clickable-image"
+                />
+              </div>
+              <div class="cuisine-content">
+                <h3 class="cuisine-title">
+                  Dashain Special Foods | ダサイン特別料理
+                </h3>
+                <p class="cuisine-description">
+                  <strong>English:</strong> During Dashain, families prepare
+                  special dishes like sel roti (rice donuts), masu (meat curry),
+                  and various sweets. The festival is incomplete without
+                  traditional goat meat curry and homemade sel roti.<br /><br /><strong
+                    >日本語:</strong
+                  >
+                  ダサイン中、家族はセル・ロティ（米ドーナツ）、マス（肉カレー）、様々な甘いものを準備します。伝統的なヤギ肉カレーと手作りのセル・ロティなしでは祭りは完成しません。
+                </p>
+              </div>
+            </div>
+
+            <div class="cuisine-card fade-in-up">
+              <img
+                src="images/tiharfood.png"
+                alt="Tihar Food"
+                class="cuisine-image clickable-image"
+              />
+              <div class="cuisine-content">
+                <h3 class="cuisine-title">
+                  Tihar Festival Foods | ティハル祭り料理
+                </h3>
+                <p class="cuisine-description">
+                  <strong>English:</strong> Tihar is celebrated with sel roti,
+                  anarasa (rice flour sweets), and various traditional sweets.
+                  Families also prepare special dishes like khir (rice pudding)
+                  and homemade sweets to offer to Goddess Laxmi.<br /><br /><strong
+                    >日本語:</strong
+                  >
+                  ティハルはセル・ロティ、アナラサ（米粉の甘いもの）、様々な伝統的な甘いもので祝われます。家族はまた、ラクシュミ女神に捧げるキール（米プディング）や手作りの甘いものを準備します。
+                </p>
+              </div>
+            </div>
+
+            <div class="cuisine-card fade-in-up">
+              <img
+                src="images/teej123.png"
+                alt="Teej Food"
+                class="cuisine-image clickable-image"
+              />
+              <div class="cuisine-content">
+                <h3 class="cuisine-title">
+                  Teej Festival Foods | ティージ祭り料理
+                </h3>
+                <p class="cuisine-description">
+                  <strong>English:</strong> During Teej, women prepare special
+                  fasting foods like dar (lentil soup), sel roti, and various
+                  traditional sweets. The festival is known for its unique
+                  fasting cuisine and special drinks.<br /><br /><strong
+                    >日本語:</strong
+                  >
+                  ティージ中、女性はダル（レンズ豆スープ）、セル・ロティ、様々な伝統的な甘いものなどの特別な断食料理を準備します。祭りは独特な断食料理と特別なドリンクで知られています。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bilingual Guide Section -->
+      <section class="bilingual-guide toggle-section" id="guide">
+        <div class="container">
+          <div class="section-header fade-in-up">
+            <h2 class="section-title">Bilingual Guide | バイリンガルガイド</h2>
+            <p class="section-subtitle">
+              <strong>English:</strong> Access comprehensive information in both
+              English and Japanese, making Nepal's culture accessible to
+              everyone.<br /><br /><strong>日本語:</strong>
+              英語と日本語の両方で包括的な情報にアクセスし、ネパールの文化を誰でも利用できるようにします。
+            </p>
+          </div>
+
+          <div class="guide-content">
+            <div class="guide-card fade-in-up">
+              <div class="guide-icon">📚</div>
+              <h3 class="guide-title">Complete Information | 完全な情報</h3>
+              <p class="guide-description">
+                <strong>English:</strong> Detailed descriptions of each
+                festival, including history, significance, and celebration
+                methods.<br /><br /><strong>日本語:</strong>
+                歴史、意義、祝祭方法を含む各祭りの詳細な説明。
+              </p>
+              <a href="festival.html" class="guide-button"
+                >Explore Now | 今すぐ探る</a
+              >
+            </div>
+
+            <div class="guide-card fade-in-up">
+              <div class="guide-icon">🗣️</div>
+              <h3 class="guide-title">Dual Language | 二言語</h3>
+              <p class="guide-description">
+                <strong>English:</strong> All content available in both English
+                and Japanese for better understanding.<br /><br /><strong
+                  >日本語:</strong
+                >
+                より良い理解のために、すべてのコンテンツが英語と日本語の両方で利用可能です。
+              </p>
+              <a href="help.html" class="guide-button"
+                >Learn More | もっと学ぶ</a
+              >
+            </div>
+
+            <div class="guide-card fade-in-up">
+              <div class="guide-icon">🎯</div>
+              <h3 class="guide-title">
+                Easy Navigation | 簡単なナビゲーション
+              </h3>
+              <p class="guide-description">
+                <strong>English:</strong> User-friendly interface with clear
+                navigation and search functionality.<br /><br /><strong
+                  >日本語:</strong
+                >
+                明確なナビゲーションと検索機能を持つユーザーフレンドリーなインターフェース。
+              </p>
+              <a href="festival.html" class="guide-button"
+                >Start Exploring | 探求を始める</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <p class="footer-text">&copy; 2025 Nepal Festival Guide. GROUP-I</p>
+          <p class="footer-text">
+            Discovering the heart of Nepalese culture through its festivals.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+      <span class="close">&times;</span>
+      <div class="modal-content">
+        <img class="modal-image" id="modalImage" src="" alt="" />
+      </div>
+    </div>
+
+    <script>
+      function toggleSection(sectionId) {
+        // Hide all sections
+        const allSections = document.querySelectorAll(".toggle-section");
+        allSections.forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        // Remove active class from all clickable cards
+        const allCards = document.querySelectorAll(".clickable-card");
+        allCards.forEach((card) => {
+          card.classList.remove("active");
+        });
+
+        // Show the selected section
+        const selectedSection = document.getElementById(sectionId);
+        if (selectedSection) {
+          selectedSection.classList.add("active");
+        }
+
+        // Add active class to clicked card
+        event.target.classList.add("active");
+
+        // Smooth scroll to the section
+        if (selectedSection) {
+          selectedSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+
+      // Image Modal functionality
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const closeBtn = document.getElementsByClassName("close")[0];
+
+      // Get all clickable images
+      const images = document.querySelectorAll(".clickable-image");
+
+      // Add click event to all images
+      images.forEach((img) => {
+        img.addEventListener("click", function () {
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          modalImg.alt = this.alt;
+          document.body.style.overflow = "hidden"; // Prevent background scrolling
+        });
+      });
+
+      // Close modal when clicking the X
+      closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Restore scrolling
+      });
+
+      // Close modal when clicking outside the image
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto"; // Restore scrolling
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && modal.style.display === "block") {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto"; // Restore scrolling
+        }
+      });
+
+      // Enhanced Animation System
+      function initAnimations() {
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-slide-bottom");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        const animatedElements = document.querySelectorAll(
+          ".feature-card, .festival-card, .cuisine-card, .guide-card"
+        );
+        animatedElements.forEach((el, index) => {
+          el.classList.add(`stagger-${(index % 6) + 1}`);
+          observer.observe(el);
+        });
+
+        // Add floating animation to feature icons
+        const featureIcons = document.querySelectorAll(".feature-icon");
+        featureIcons.forEach((icon, index) => {
+          setTimeout(() => {
+            icon.classList.add("animate-float");
+          }, index * 200);
+        });
+
+        // Add pulse animation to buttons
+        const buttons = document.querySelectorAll(
+          ".cta-button, .guide-button, .nav-button"
+        );
+        buttons.forEach((button) => {
+          button.addEventListener("mouseenter", () => {
+            button.classList.add("animate-pulse");
+          });
+          button.addEventListener("mouseleave", () => {
+            button.classList.remove("animate-pulse");
+          });
+        });
+
+        // Add glow effect to clickable cards
+        const clickableCards = document.querySelectorAll(".clickable-card");
+        clickableCards.forEach((card) => {
+          card.addEventListener("mouseenter", () => {
+            card.classList.add("animate-glow");
+          });
+          card.addEventListener("mouseleave", () => {
+            card.classList.remove("animate-glow");
+          });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener("scroll", () => {
+          const scrolled = window.pageYOffset;
+          const hero = document.querySelector(".hero");
+          if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+          }
+        });
+
+        // Smooth reveal animation for sections
+        const sections = document.querySelectorAll("section");
+        const sectionObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        sections.forEach((section) => {
+          section.style.opacity = "0";
+          section.style.transform = "translateY(30px)";
+          section.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+          sectionObserver.observe(section);
+        });
+
+        // Typing animation for hero title
+        const heroTitle = document.querySelector(".hero h1");
+        if (heroTitle) {
+          const text = heroTitle.textContent;
+          heroTitle.textContent = "";
+          heroTitle.style.borderRight = "2px solid white";
+
+          let i = 0;
+          const typeWriter = () => {
+            if (i < text.length) {
+              heroTitle.textContent += text.charAt(i);
+              i++;
+              setTimeout(typeWriter, 100);
+            } else {
+              heroTitle.style.borderRight = "none";
+            }
+          };
+
+          setTimeout(typeWriter, 1000);
+        }
+
+        // Staggered animation for festival cards
+        const festivalCards = document.querySelectorAll(".festival-card");
+        festivalCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(50px)";
+
+          setTimeout(() => {
+            card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, index * 150);
+        });
+
+        // Hover effects for images
+        const images = document.querySelectorAll(
+          ".festival-image, .cuisine-image"
+        );
+        images.forEach((img) => {
+          img.addEventListener("mouseenter", () => {
+            img.style.transform = "scale(1.05) rotate(2deg)";
+            img.style.transition = "transform 0.3s ease";
+          });
+
+          img.addEventListener("mouseleave", () => {
+            img.style.transform = "scale(1) rotate(0deg)";
+          });
+        });
+      }
+
+      // Initialize animations when DOM is loaded
+      document.addEventListener("DOMContentLoaded", initAnimations);
+
+      // Advanced Features
+      function initAdvancedFeatures() {
+        // Custom Cursor
+        const cursor = document.getElementById("customCursor");
+        document.addEventListener("mousemove", (e) => {
+          cursor.style.left = e.clientX + "px";
+          cursor.style.top = e.clientY + "px";
+        });
+
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll(
+          "a, button, .clickable-card"
+        );
+        hoverElements.forEach((el) => {
+          el.addEventListener("mouseenter", () =>
+            cursor.classList.add("hover")
+          );
+          el.addEventListener("mouseleave", () =>
+            cursor.classList.remove("hover")
+          );
+        });
+
+        // Particle System
+        const canvas = document.getElementById("particles-canvas");
+        const ctx = canvas.getContext("2d");
+        let particles = [];
+
+        function resizeCanvas() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+
+        function createParticle() {
+          return {
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 2,
+            vy: (Math.random() - 0.5) * 2,
+            size: Math.random() * 3 + 1,
+            opacity: Math.random() * 0.5 + 0.2,
+          };
+        }
+
+        function initParticles() {
+          particles = [];
+          for (let i = 0; i < 50; i++) {
+            particles.push(createParticle());
+          }
+        }
+
+        function animateParticles() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          particles.forEach((particle) => {
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+
+            if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+            if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(26, 54, 93, ${particle.opacity})`;
+            ctx.fill();
+          });
+
+          requestAnimationFrame(animateParticles);
+        }
+
+        resizeCanvas();
+        initParticles();
+        animateParticles();
+
+        window.addEventListener("resize", () => {
+          resizeCanvas();
+          initParticles();
+        });
+
+        // Progress Bar
+        function updateProgressBar() {
+          const scrollTop = window.pageYOffset;
+          const docHeight = document.body.scrollHeight - window.innerHeight;
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          document.getElementById("progressBar").style.width =
+            scrollPercent + "%";
+        }
+
+        window.addEventListener("scroll", updateProgressBar);
+
+        // Theme Toggle
+        const themeToggle = document.getElementById("themeToggle");
+        let isDark = false;
+
+        themeToggle.addEventListener("click", () => {
+          isDark = !isDark;
+          document.body.classList.toggle("dark-theme", isDark);
+          themeToggle.textContent = isDark ? "☀️" : "🌙";
+          themeToggle.style.background = isDark
+            ? "#ffd700"
+            : "var(--primary-color)";
+        });
+
+        // Sound Effects
+        function playSound(frequency, duration) {
+          const audioContext = new (window.AudioContext ||
+            window.webkitAudioContext)();
+          const oscillator = audioContext.createOscillator();
+          const gainNode = audioContext.createGain();
+
+          oscillator.connect(gainNode);
+          gainNode.connect(audioContext.destination);
+
+          oscillator.frequency.value = frequency;
+          oscillator.type = "sine";
+
+          gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+          gainNode.gain.exponentialRampToValueAtTime(
+            0.01,
+            audioContext.currentTime + duration
+          );
+
+          oscillator.start(audioContext.currentTime);
+          oscillator.stop(audioContext.currentTime + duration);
+        }
+
+        // Add sound effects to buttons
+        const buttons = document.querySelectorAll(
+          "button, .cta-button, .clickable-card"
+        );
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            playSound(800, 0.1);
+          });
+        });
+
+        // Touch Feedback for Mobile
+        if ("ontouchstart" in window) {
+          const touchElements = document.querySelectorAll(
+            ".clickable-card, button, a"
+          );
+          touchElements.forEach((el) => {
+            el.addEventListener("touchstart", () => {
+              el.classList.add("touch-feedback");
+            });
+            el.addEventListener("touchend", () => {
+              setTimeout(() => el.classList.remove("touch-feedback"), 100);
+            });
+          });
+        }
+
+        // Sound Wave Animation
+        function createSoundWave() {
+          const soundWave = document.createElement("div");
+          soundWave.className = "sound-wave";
+          return soundWave;
+        }
+
+        // Add sound wave to music-related elements
+        const musicElements = document.querySelectorAll(".feature-icon");
+        musicElements.forEach((icon) => {
+          if (
+            icon.textContent.includes("🎵") ||
+            icon.textContent.includes("🎶")
+          ) {
+            const waveContainer = document.createElement("div");
+            waveContainer.style.display = "inline-flex";
+            waveContainer.style.alignItems = "center";
+            waveContainer.style.marginLeft = "10px";
+
+            for (let i = 0; i < 5; i++) {
+              waveContainer.appendChild(createSoundWave());
+            }
+
+            icon.parentNode.appendChild(waveContainer);
+          }
+        });
+
+        // Gradient Background Animation
+        const hero = document.querySelector(".hero");
+        if (hero) {
+          hero.classList.add("gradient-bg");
+        }
+
+        // Enhanced Hover Effects
+        const cards = document.querySelectorAll(
+          ".feature-card, .festival-card, .cuisine-card"
+        );
+        cards.forEach((card) => {
+          card.addEventListener("mouseenter", () => {
+            card.style.transform = "translateY(-10px) scale(1.02)";
+            card.style.boxShadow = "0 20px 40px rgba(0, 0, 0, 0.2)";
+          });
+
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "translateY(0) scale(1)";
+            card.style.boxShadow = "";
+          });
+        });
+
+        // Parallax Enhancement
+        window.addEventListener("scroll", () => {
+          const scrolled = window.pageYOffset;
+          const hero = document.querySelector(".hero");
+          if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+          }
+
+          // Parallax for particles
+          particles.forEach((particle, index) => {
+            particle.y += Math.sin(scrolled * 0.001 + index) * 0.5;
+          });
+        });
+
+        // Intersection Observer for Advanced Animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const advancedObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0) rotateX(0)";
+
+              // Add special effects based on element type
+              if (entry.target.classList.contains("feature-card")) {
+                entry.target.style.background =
+                  "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))";
+              }
+            }
+          });
+        }, observerOptions);
+
+        // Observe all animated elements
+        const animatedElements = document.querySelectorAll(
+          ".feature-card, .festival-card, .cuisine-card, .guide-card"
+        );
+        animatedElements.forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(50px) rotateX(10deg)";
+          el.style.transition = "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+          advancedObserver.observe(el);
+        });
+      }
+
+      // Back to Top Button functionality
+      function initBackToTop() {
+        const backToTopButton = document.getElementById("backToTop");
+
+        if (!backToTopButton) return;
+
+        // Show/hide button based on scroll position
+        window.addEventListener("scroll", () => {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.add("show");
+          } else {
+            backToTopButton.classList.remove("show");
+          }
+        });
+
+        // Smooth scroll to top when clicked
+        backToTopButton.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      }
+
+      // Simple Animation System
+      function initSimpleAnimations() {
+        // Basic scroll animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        }, observerOptions);
+
+        // Observe all cards
+        const cards = document.querySelectorAll(
+          ".feature-card, .festival-card, .cuisine-card, .guide-card"
+        );
+        cards.forEach((card) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
+          card.style.transition = "all 0.6s ease";
+          observer.observe(card);
+        });
+
+        // Ensure images are visible by default
+        const images = document.querySelectorAll("img");
+        images.forEach((img) => {
+          img.style.opacity = "1";
+          img.style.visibility = "visible";
+          img.style.display = "block";
+        });
+      }
+
+      // Initialize features
+      document.addEventListener("DOMContentLoaded", initAdvancedFeatures);
+      document.addEventListener("DOMContentLoaded", initBackToTop);
+      document.addEventListener("DOMContentLoaded", initSimpleAnimations);
+
+      // Add loading animation
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+
+        // Animate page elements on load
+        const elements = document.querySelectorAll(
+          ".hero, .features, .section-header"
+        );
+        elements.forEach((el, index) => {
+          setTimeout(() => {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }, index * 200);
+        });
+      });
+    </script>
+  </body>
+</html>

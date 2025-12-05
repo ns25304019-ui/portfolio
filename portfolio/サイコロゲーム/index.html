@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>サイコロゲーム</title>
+  <link rel="stylesheet" href="style.css"> <!-- CSSを読み込み -->
+  <script src="script.js" defer></script> <!-- JSを読み込み -->
+</head>
+<body>
+  <h1> サイコロゲーム</h1>
+
+  <div id="startBtn">
+    <button onclick="startGame()">Start Game</button>
+  </div>
+  <div><a href="../index.html" class="bttn">Back</a></div>
+
+  <div id="game">
+    <div>
+      <h2>あなた</h2>
+      <img id="playerDice" class="dice-img" src="images/dice.png" alt="プレイヤーのサイコロ">
+    </div>
+
+    <div>
+      <h2>コンピュータ</h2>
+      <img id="cpuDice" class="dice-img" src="images/dice.png" alt="コンピュータのサイコロ">
+    </div>
+
+    <button onclick="rollDice()">サイコロを振る</button>
+    <p id="result"></p>
+    <button onclick="goBack()">戻る</button>
+  </div>
+</body>
+</html>

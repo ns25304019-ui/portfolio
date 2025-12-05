@@ -1,0 +1,54 @@
+body {
+  text-align: center;
+  font-family: sans-serif;
+  background-color: #f0f8ff;
+  margin: 0;
+  padding: 0;
+}
+
+h1 { 
+  color: #d2691e; 
+}
+
+.dice-img { 
+  width: 120px; 
+  margin: 10px; 
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #d2691e;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#result { 
+  font-size: 20px; 
+  font-weight: bold; 
+  margin-top: 15px; 
+}
+
+#game { 
+  display: none; 
+}
+.bttn { 
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #d2691e;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.bttn:hover {
+  background-color: #b85a1a;
+}

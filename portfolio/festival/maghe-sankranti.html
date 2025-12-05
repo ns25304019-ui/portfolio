@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maghe Sankranti - Winter Solstice Festival | マゲ・サンクランティ - 冬至の祭り | Nepal Festival Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #e53e3e;
+      --accent-color: #f6ad55;
+      --text-primary: #2d3748;
+      --text-secondary: #4a5568;
+      --background-light: #f7fafc;
+      --background-white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--background-light);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    header {
+      background: var(--background-white);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--background-light);
+      color: var(--primary-color);
+    }
+
+    .nav-button {
+      background: var(--secondary-color);
+      color: white !important;
+      padding: 0.75rem 1.5rem !important;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav-button:hover {
+      background: #c53030;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      color: white;
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('images/maghe.jpg') center center / cover no-repeat;
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Main Content */
+    main {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .content-section {
+      margin-top: 3rem;
+    }
+
+    .content-item {
+      background: var(--background-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .content-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .content-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .item-image {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .item-content {
+      padding: 2rem;
+      flex: 1;
+    }
+
+    .item-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .item-description {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .back-button {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.125rem;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: #2c5282;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-text {
+      opacity: 0.8;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .content-item {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .item-image {
+        width: 100%;
+        height: 250px;
+      }
+
+      .item-content {
+        padding: 1.5rem;
+      }
+
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 2rem 0;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Focus states */
+    a:focus,
+    button:focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+
+    /* Image Modal */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content {
+      position: relative;
+      margin: auto;
+      padding: 0;
+      width: 80%;
+      max-width: 800px;
+      max-height: 80vh;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: zoomIn 0.3s ease;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s ease;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .item-image {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .item-image:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: translateY(-50%) scale(0.8); opacity: 0; }
+      to { transform: translateY(-50%) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="images/map.jpg" alt="Nepal Culture Guide Logo" class="logo">
+          <div class="brand">
+            <div class="brand-title">Nepal Festival Guide | ネパール祭りガイド</div>
+            <div class="brand-subtitle">Discover Traditional Celebrations | 伝統的な祝祭を発見</div>
+          </div>
+        </div>
+        
+        <nav>
+          <ul>
+            <li><a href="index.html">Home | ホーム</a></li>
+            <li><a href="festival.html">All Festivals | すべての祭り</a></li>
+            <li><a href="help.html" class="nav-button">Help | ヘルプ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <div class="hero-content fade-in-up">
+        <h1>Maghe Sankranti - Winter Solstice Festival | マゲ・サンクランティ - 冬至の祭り</h1>
+        <p><strong>English:</strong> Celebrate the transition from winter to spring with traditional foods, family gatherings, and the promise of warmer days ahead<br><br><strong>日本語:</strong> 伝統的な食べ物、家族の集まり、そしてより暖かい日々の約束と共に、冬から春への移行を祝いましょう</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <h2 class="section-title">About Maghe Sankranti | マゲ・サンクランティについて</h2>
+        <p class="section-subtitle"><strong>English:</strong> Maghe Sankranti (Nepali: माघे सङ्क्रान्ति, Maithili: माघि, Nepal Bhasa: घ्यःचाकु संल्हु) is a Nepali festival observed on the first of Magh in the Vikram Sambat (B.S) or Yele calendar marking the end of the winter solstice and the month of Poush. The Tharu people celebrate this day as their new year. It is also regarded as a major government-declared annual festival of the Magar community. Maghe Sankranti shares similarities with solstice festivals in various other religious traditions.<br><br><strong>日本語:</strong> マゲ・サンクランティ（ネパール語：माघे सङ्क्रान्ति、マイティリ語：माघि、ネパール・バサ語：घ्यःचाकु संल्हु）は、ビクラム・サンバット（B.S）またはイェレ暦のマグ月の最初の日に観察されるネパールの祭りで、冬至とポウシュ月の終わりを記します。タルー族はこの日を新年として祝います。また、マガル・コミュニティの政府が宣言した主要な年次祭りとみなされています。マゲ・サンクランティは、他の様々な宗教的伝統の至点祭りと類似点があります。</p>
+      </div>
+      
+      <div class="content-section">
+        <div class="content-item fade-in-up">
+          <img src="images/maghe.jpg" alt="Maghe Sankranti Festival" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Festival Overview | 祭りの概要</h3>
+            <p class="item-description"><strong>English:</strong> Maghe Sankranti is celebrated on the first day of the month of Magh, marking the end of the winter solstice. It's a time when families gather to enjoy special foods and celebrate the promise of warmer days ahead.<br><br><strong>日本語:</strong> マゲ・サンクランティはマグ月の最初の日に祝われ、冬至の終わりを記します。家族が集まって特別な食べ物を楽しみ、より暖かい日々の約束を祝う時です。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/mg.png" alt="Maghe Sankranti Rituals" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Ritual Baths and Sacred Sites | 聖なる沐浴と聖地</h3>
+            <p class="item-description"><strong>English:</strong> Observant Hindus take ritual baths during this festival at sacred sites including Janakpurdham, Sankhamul on the Bagmati River near Patan; in the Gandaki/Narayani river basin at Triveni, Devghat near Chitwan Valley and Ridi on the Kaligandaki River; and in the Koshi River basin at Dolalghat on the Sunkoshi River.<br><br><strong>日本語:</strong> 敬虔なヒンドゥー教徒は、この祭りの間に聖地で聖なる沐浴を行います。これには、パタン近くのバグマティ川のジャナクプルダム、サンカムル；ガンダキ/ナラヤニ川流域のトリヴェニ、チトワン渓谷近くのデブガット、カリガンダキ川のリディ；そしてスンコシ川のドラルガットのコシ川流域が含まれます。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/dance.png" alt="Maghi Parba - Tharu New Year" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Maghi Parba - Tharu New Year | マギ・パルバ - タルー新年</h3>
+            <p class="item-description"><strong>English:</strong> Maghi Parba is the most important festival for the Tharu community, marking their New Year celebration that coincides with Maghe Sankranti. This festival is celebrated with great enthusiasm in the Terai region of Nepal. Families gather to perform traditional rituals, share special foods, and participate in cultural dances and music. The celebration includes traditional Tharu songs, stick dances (Danda Nach), and other cultural performances that strengthen community bonds and preserve Tharu heritage.<br><br><strong>日本語:</strong> マギ・パルバはタルー・コミュニティにとって最も重要な祭りで、マゲ・サンクランティと一致する新年の祝いを記します。この祭りはネパールのテライ地域で大いなる熱意を持って祝われます。家族が集まって伝統的な儀式を行い、特別な食べ物を分かち合い、文化的な踊りや音楽に参加します。祝祭には伝統的なタルーの歌、スティックダンス（ダンダ・ナチ）、その他の文化的パフォーマンスが含まれ、コミュニティの絆を強化し、タルーの遺産を保存します。</p>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Special Foods Section -->
+      <div class="section-header fade-in-up" style="margin-top: 4rem;">
+        <h2 class="section-title">Maghe Sankranti Special Foods | マゲ・サンクランティ特別料理</h2>
+        <p class="section-subtitle"><strong>English:</strong> Traditional delicacies prepared during Maghe Sankranti celebrations<br><br><strong>日本語:</strong> マゲ・サンクランティ祝祭中に準備される伝統的な美味しいもの</p>
+      </div>
+      
+      <div class="content-section">
+        <div class="content-item fade-in-up">
+          <img src="images/chiura.jpg" alt="Chiura" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Chiura (चिउरा) | チウラ</h3>
+            <p class="item-description"><strong>English:</strong> Beaten rice, a staple during Maghe Sankranti. It's often served with ghee, yogurt, and sesame seeds. Chiura represents simplicity and is considered auspicious during the festival.<br><br><strong>日本語:</strong> マゲ・サンクランティ中の主食である押し米。ギー、ヨーグルト、ゴマと一緒に提供されることが多いです。チウラはシンプルさを表し、祭りの間は縁起が良いとされています。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/selroti.jpg" alt="Sel Roti" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Sel Roti (सेल रोटी) | セルロティ</h3>
+            <p class="item-description"><strong>English:</strong> A traditional Nepali bread made from rice flour, deep-fried in a ring shape. Sel roti is a special treat during Maghe Sankranti, enjoyed with tea or as a snack throughout the day.<br><br><strong>日本語:</strong> 米粉で作られた伝統的なネパールのパンで、リング型に揚げられます。セルロティはマゲ・サンクランティ中の特別なおやつで、紅茶と一緒に、または一日中おやつとして楽しまれます。</p>
+          </div>
+        </div>
+        
+        
+        <div class="content-item fade-in-up">
+          <img src="images/potatos.jpg" alt="Winter Vegetables" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Winter Vegetables | 冬野菜</h3>
+            <p class="item-description"><strong>English:</strong> Root vegetables like yam, sweet potato, and taro are prominently featured in Maghe Sankranti meals. These vegetables are believed to provide warmth and nutrition during the cold winter season.<br><br><strong>日本語:</strong> ヤム、サツマイモ、タロイモなどの根菜類がマゲ・サンクランティの食事で目立って特徴的です。これらの野菜は寒い冬の季節に暖かさと栄養を提供すると信じられています。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/sweets.jpg" alt="Traditional Sweets" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Traditional Sweets | 伝統的な甘いもの</h3>
+            <p class="item-description"><strong>English:</strong> Various sweets including til ko laddu (sesame seed balls), barfi (milk fudge), and peda (milk sweets). These are homemade delicacies shared among family and friends during celebrations.<br><br><strong>日本語:</strong> ティル・コ・ラドゥ（ゴマのボール）、バルフィ（ミルクファッジ）、ペダ（ミルクスイーツ）など、様々な甘いもの。これらは祝祭中に家族や友人と分かち合う手作りの美味しいものです。</p>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="back-button">
+        <a href="festival.html" class="back-link">
+          ← Back to All Festivals | すべての祭りに戻る
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">&copy; 2025 Nepal Festival Guide. GROUP-I</p>
+        <p class="footer-text">Discovering the heart of Nepalese culture through its festivals.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="image-modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img class="modal-image" id="modalImage" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    // Get the modal
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementsByClassName('close')[0];
+
+    // Get all images with click functionality
+    const images = document.querySelectorAll('.item-image');
+
+    // Add click event to all images
+    images.forEach(img => {
+      img.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalImg.src = this.src;
+        modalImg.alt = this.alt;
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      });
+    });
+
+    // Close modal when clicking the X
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    });
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+      }
+    });
+  </script>
+</body>
+</html>
