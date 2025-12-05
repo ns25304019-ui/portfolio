@@ -26,9 +26,7 @@
             こんにちは。私は
             <span id="nameText">シャルマニラジュ</span>、情報処理科 1年生です。
           </h1>
-          <p class="lead" id="heroLead">
-            ここは1年生向けに作った紹介ページです。勉強中のことや、はじめて作った小さな作品を置けます。
-          </p>
+          <p class="lead" id="heroLead"></p>
           <div style="margin-top: 12px" id="socials"></div>
 
           <section style="margin-top: 20px">
@@ -36,15 +34,15 @@
             <div class="card muted">
               <ul>
                 <li>プログラミング基礎（C言語 / Java入門）</li>
-                <li>情報処理（データの扱い・OSの基礎・ネットワークの基礎）</li>
+                <li>情報処理（データの扱い・ネットワークの基礎）</li>
                 <li>Web基礎（HTML / CSS / JavaScript）</li>
-                <li>小さな作品を作って練習（電卓・ToDoリスト・自己紹介ページ）</li>
+                <li>
+                  小さな作品を作って練習（電卓・サイコロゲーム・国のお祭りの紹介ページ）
+                </li>
               </ul>
+              の
               <p class="muted">
                 今は基礎をしっかり学んで、少しずつ作品を形にしています。
-              </p>
-              <p class="muted">
-                このサイトは「HTML / CSS / JavaScript」で動きます — 学んだことをすぐ置けます。
               </p>
             </div>
           </section>
@@ -65,7 +63,7 @@
         </aside>
       </section>
 
-      <!-- ABOUT -->
+      
       <section>
         <h2>自己紹介（短く）</h2>
         <div class="card" id="aboutCard"></div>
@@ -80,8 +78,8 @@
         <h2>今後の予定</h2>
         <div class="card">
           <ul>
-            <li>1学期：基礎演習と簡単なC言語課題</li>
-            <li>2学期：ウェブ制作の基礎と小さい課題制作</li>
+            <li>1学期～2学期：基礎演習と簡単なC言語課題</li>
+            <li>３学期から5学期：ウェブ制作の基礎と小さい課題制作</li>
             <li>2年目：実習・就職準備・ポートフォリオ充実</li>
           </ul>
         </div>
@@ -95,7 +93,11 @@
             <div style="height: 8px"></div>
             <input id="subjectField" placeholder="件名" />
             <div style="height: 8px"></div>
-            <textarea id="messageField" rows="4" placeholder="メッセージ"></textarea>
+            <textarea
+              id="messageField"
+              rows="4"
+              placeholder="メッセージ"
+            ></textarea>
             <div style="height: 8px"></div>
             <button type="submit">送信</button>
           </form>

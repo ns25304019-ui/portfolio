@@ -37,7 +37,7 @@ const CONFIG = {
     hobbies: "My hobbies include studying programming and trying out new technologies. I also enjoy learning about my country's culture and traditions and introducing them through websites."
   },
   IMAGE_URL: "images/img.JPG",
-  EMAIL: "your.email@example.com",
+  EMAIL: "ns25304019@ga.ttc.ac.jp",
   PROJECTS: [
     {
       title: "電卓アプリ (練習)",
