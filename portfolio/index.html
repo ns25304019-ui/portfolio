@@ -4,111 +4,167 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>シャルマニラジュ — 学生ポートフォリオ（1年生向け）</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="theme-color" content="#071026" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    
   </head>
-  <body data-theme="light">
+  <body data-theme="dark">
+    <div class="bg-shapes" aria-hidden="true">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+    </div>
+
     <div class="container">
       <header>
-        <div class="brand">シャルマニラジュ（学生）</div>
+        <div class="brand">
+          <div class="logo">N</div>
+          <span id="brandText">シャルマニラジュ（学生）</span>
+        </div>
         <div class="controls">
+          <label for="lang" class="visually-hidden">言語</label>
           <select id="lang">
             <option value="jp">日本語</option>
             <option value="en">English</option>
           </select>
-          <button id="themeToggle">ダーク</button>
+          <button id="themeToggle">ライト</button>
         </div>
       </header>
 
-      <!-- HERO -->
       <section class="hero">
-        <main>
+        <main class="card reveal">
           <h1 id="heroTitle">
-            こんにちは。私は
-            <span id="nameText">シャルマニラジュ</span>、情報処理科 1年生です。
+            <span class="nameWrap"
+              ><span id="nameText" class="nameTxt"></span
+              ><span class="cursor" aria-hidden="true"></span
+            ></span>
+            <span style="font-size: 20px" aria-hidden="true">👋</span>
           </h1>
-          <p class="lead" id="heroLead"></p>
-          <div style="margin-top: 12px" id="socials"></div>
+          <div class="underline" aria-hidden="true"></div>
+          <p class="lead" id="heroLead">
+            基礎を丁寧に学び、小さな作品を積み重ねています。興味はウェブ制作・プログラミング・ネットワーク基礎です。
+          </p>
 
-          <section style="margin-top: 20px">
-            <h2>1年生の勉強プラン（例）</h2>
-            <div class="card muted">
-              <ul>
+          <div id="socials">
+            <button
+              class="chip"
+              data-link="https://github.com/ns25304019-ui"
+              id="chipGithub"
+            >
+              GitHub
+            </button>
+            <button
+              class="chip"
+              data-link="https://www.facebook.com/profile.php?id=100067397425781"
+              id="chipFacebook"
+            >
+              Facebook
+            </button>
+            <button
+              class="chip"
+              data-link="mailto:ns25304019@ga.ttc.ac.jp"
+              id="chipEmail"
+            >
+              Email
+            </button>
+          </div>
+
+          <section style="margin-top: 18px">
+            <h2 id="studyPlanTitle">1年生の勉強プラン（例）</h2>
+            <div class="card" style="margin-top: 8px">
+              <ul
+                id="studyList"
+                style="margin: 0 0 8px 18px; color: var(--muted)"
+              >
                 <li>プログラミング基礎（C言語 / Java入門）</li>
                 <li>情報処理（データの扱い・ネットワークの基礎）</li>
                 <li>Web基礎（HTML / CSS / JavaScript）</li>
-                <li>
-                  小さな作品を作って練習（電卓・サイコロゲーム・国のお祭りの紹介ページ）
-                </li>
+                <li>小さな作品で実践（電卓・サイコロ・祭り紹介ページ）</li>
               </ul>
-              の
-              <p class="muted">
-                今は基礎をしっかり学んで、少しずつ作品を形にしています。
+              <p class="muted" id="studyNote">
+                今は基礎を固めて、作品を少しずつ増やすフェーズです。良い習慣を持つことが大事。
               </p>
             </div>
           </section>
         </main>
 
-        <aside>
+        <aside class="reveal">
           <div class="card">
             <div class="avatar">
-              <img id="profileImg" src="images/img.JPG" alt="profile" />
+              <img
+                id="profileImg"
+                src="images/img.JPG"
+                alt="profile"
+                onerror="this.style.display='none';this.parentNode.textContent='N';this.parentNode.style.fontSize='64px';this.parentNode.style.color='var(--text)';"
+              />
             </div>
             <div style="margin-top: 10px">
               役職: <strong id="roleText">情報処理科 1年生（2年制）</strong>
             </div>
-            <div style="margin-top: 6px" class="muted">
+            <div class="muted" style="margin-top: 6px" id="schoolText">
               学校: 専門学校東京テクニカルカレッジ／情報処理科
             </div>
+            <!-- resume/profile removed as requested -->
           </div>
         </aside>
       </section>
 
-      
-      <section>
-        <h2>自己紹介（短く）</h2>
-        <div class="card" id="aboutCard"></div>
-      </section>
-
-      <section>
-        <h2>はじめての作品（例）</h2>
-        <div class="projects" id="projectsList"></div>
-      </section>
-
-      <section>
-        <h2>今後の予定</h2>
-        <div class="card">
-          <ul>
-            <li>1学期～2学期：基礎演習と簡単なC言語課題</li>
-            <li>３学期から5学期：ウェブ制作の基礎と小さい課題制作</li>
-            <li>2年目：実習・就職準備・ポートフォリオ充実</li>
-          </ul>
+      <section class="reveal" id="aboutSection">
+        <h2 id="aboutTitle">自己紹介</h2>
+        <div class="card" id="aboutCard">
+          <p>
+            はじめまして。現在、専門学校東京テクニカルカレッジ 情報処理科1年の
+            <strong>シャルマ ニラジュ</strong> と申します。<br /><strong
+              >ネパール国籍</strong
+            >で、日本には学習と将来のITエンジニアとしてのキャリアを築くために来日しました。
+          </p>
+          <p>
+            プログラミングとIT技術に強い興味があり、現在
+            <strong>C言語・Java・HTML/CSS・JavaScript</strong>
+            を中心に学んでいます。まだ学習途中ではありますが、授業以外でも自主的に小さな作品制作に取り組むことで、着実にスキルを伸ばしています。
+          </p>
+          <p>
+            私は<strong>責任感が強く、最後まで諦めず継続できること</strong>が自分の強みです。チームワークを大切にしながら、新しい技術にも積極的にチャレンジしていきたいと考えています。
+          </p>
+          <p>
+            将来は、日本のIT企業で経験を積み、社会に貢献できるエンジニアになることを目標としています。どうぞよろしくお願いいたします。
+          </p>
         </div>
       </section>
 
-      <section>
-        <h2>連絡</h2>
-        <div class="card">
-          <form id="contactForm">
-            <input id="nameField" placeholder="お名前" required />
-            <div style="height: 8px"></div>
-            <input id="subjectField" placeholder="件名" />
-            <div style="height: 8px"></div>
+      <section class="reveal">
+        <h2 id="projectsTitle">はじめての作品（例）</h2>
+        <div class="projects" id="projectsList" style="margin-top: 8px"></div>
+      </section>
+
+      <section class="reveal">
+        <h2 id="contactTitle">連絡(デモ)</h2>
+        <div class="card" style="margin-top: 8px">
+          <form id="contactForm" novalidate>
+            <input id="nameField" type="text" placeholder="お名前" required />
+            <input id="subjectField" type="text" placeholder="件名" />
             <textarea
               id="messageField"
               rows="4"
               placeholder="メッセージ"
             ></textarea>
-            <div style="height: 8px"></div>
-            <button type="submit">送信</button>
+            <button type="submit" id="submitBtn">送信</button>
+            <div
+              id="formStatus"
+              style="margin-top: 8px; font-size: 13px; opacity: 0.95"
+            ></div>
           </form>
         </div>
       </section>
 
-      <footer>
-        © <span id="year"></span> シャルマニラジュ — 1年生向けページ
+      <footer class="reveal">
+        © <span id="year"></span>
+        <span id="footerName">シャルマニラジュ</span>
       </footer>
     </div>
-
-    <script src="script.js"></script>
   </body>
 </html>

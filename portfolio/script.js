@@ -1,253 +1,187 @@
-// --------- Configure your simple student info here ---------
-const CONFIG = {
-  NAME: "シャルマニラジュ",
-  ROLE: "情報処理科 1年生（2年制）",
-  BIO_JP: "私は情報処理科の1年生です。プログラミングを勉強しています。",
-  BIO_EN: "I am a 1st-year Information Processing student learning programming.",
-  ABOUT_JP: {
-    intro: "こんにちは！シャルマニラジュです。専門学校東京テクニカルカレッジの情報処理科で、プログラミングとWeb開発の基礎を学んでいます。",
-    interests: [
-      "Web開発（HTML/CSS/JavaScript）",
-      "プログラミング基礎（C言語、Java）",
-      "UI/UXデザイン",
-      "アプリ開発"
-    ],
-    skills: [
-      "HTML/CSS/JavaScript（基礎）",
-      "Webページ制作",
-      "簡単なアプリケーション開発"
-    ],
-    goals: "将来は、ユーザーにとって使いやすく、美しいWebアプリケーションやモバイルアプリを開発できるエンジニアになりたいです。現在は基礎をしっかり学びながら、小さなプロジェクトを通じて実践的な経験を積んでいます。",
-    hobbies: "趣味はプログラミングの勉強と、新しい技術を試すことです。また、自分の国の文化や伝統について学び、それをWebサイトで紹介することも楽しんでいます。"
-  },
-  ABOUT_EN: {
-    intro: "Hello! I'm Niraj Sharma. I'm studying at Tokyo Technical College, majoring in Information Processing, where I'm learning the fundamentals of programming and web development.",
-    interests: [
-      "Web Development (HTML/CSS/JavaScript)",
-      "Programming Basics (C, Java)",
-      "UI/UX Design",
-      "App Development"
-    ],
-    skills: [
-      "HTML/CSS/JavaScript (Basics)",
-      "Web Page Creation",
-      "Simple Application Development"
-    ],
-    goals: "In the future, I want to become an engineer who can develop user-friendly and beautiful web applications and mobile apps. Currently, I'm learning the fundamentals while gaining practical experience through small projects.",
-    hobbies: "My hobbies include studying programming and trying out new technologies. I also enjoy learning about my country's culture and traditions and introducing them through websites."
-  },
-  IMAGE_URL: "images/img.JPG",
-  EMAIL: "ns25304019@ga.ttc.ac.jp",
-  PROJECTS: [
-    {
-      title: "電卓アプリ (練習)",
-      desc: "HTML/CSS/JavaScriptで作る、簡単な電卓。",
-      link: "./calculator/index.html",
-    },
-    {
-      title: "サイコロゲーム (JavaScript)",
-      desc: "ランダムにサイコロが出るゲーム。",
-      link: "./サイコロゲーム/index.html",
-      image: "./サイコロゲーム/images/dice.png",
-    },
-    {
-      title: "自分の国のお祭り紹介ページ",
-      desc: "自分の国の文化や伝統を紹介。",
-      link: "./festival/index.html",
-      image: "./festival/images/FLAG.PNG",
-    },
-  ],
-};
-// ----------------------------------------------------------
 
-const nameText = document.getElementById("nameText");
-const roleText = document.getElementById("roleText");
-const profileImg = document.getElementById("profileImg");
-const heroLead = document.getElementById("heroLead");
-const projectsList = document.getElementById("projectsList");
-const aboutCard = document.getElementById("aboutCard");
-
-function init() {
-  nameText.textContent = CONFIG.NAME;
-  roleText.textContent = CONFIG.ROLE;
-  document.querySelector(".brand").textContent = CONFIG.NAME + "（学生）";
-  document.getElementById("heroTitle").textContent =
-    `こんにちは。私は ${CONFIG.NAME}、情報処理科 1年生です。`;
-  heroLead.textContent = CONFIG.BIO_JP;
-  profileImg.src = CONFIG.IMAGE_URL;
-  document.getElementById("year").textContent = new Date().getFullYear();
-  renderAbout(CONFIG.ABOUT_JP, true);
-
-  // Render projects
-  projectsList.innerHTML = "";
-  CONFIG.PROJECTS.forEach((p) => {
-    const card = document.createElement("div");
-    card.className = "project";
-
-    if (p.image) {
-      const img = document.createElement("img");
-      img.src = p.image;
-      img.className = "project-image";
-      img.alt = p.title;
-      img.onerror = function() {
-        this.style.display = "none";
+      // bilingual data (JP / EN) — contact title now includes "(demo)"
+      const data = {
+        brandJP: "シャルマニラジュ（学生）",
+        brandEN: "Sharma Niraj (Student)",
+        nameJP: "こんにちは。私は シャルマニラジュ、情報処理科 1年生です。",
+        nameEN: "Hello, I am Sharma Niraj, a first-year student in Information Processing.",
+        leadJP: "基礎を丁寧に学び、小さな作品を積み重ねています。興味はウェブ制作・プログラミング・ネットワーク基礎です。",
+        leadEN: "Learning fundamentals carefully and building small projects. Interests: web development, programming, and basic networking.",
+        roleJP: "情報処理科 1年生（2年制）",
+        roleEN: "1st year — Information Processing",
+        schoolJP: "専門学校東京テクニカルカレッジ／情報処理科",
+        schoolEN: "Tokyo Technical College — Information Processing",
+        studyTitleJP: "1年生の勉強プラン（例）",
+        studyTitleEN: "Study Plan (Year 1 example)",
+        studyNoteJP: "今は基礎を固めて、作品を少しずつ増やすフェーズです。良い習慣を持つことが大事。",
+        studyNoteEN: "Currently focusing on fundamentals and gradually increasing project work. Good habits matter.",
+        projectsTitleJP: "はじめての作品（例）",
+        projectsTitleEN: "Sample Projects (examples)",
+        contactTitleJP: "連絡(デモ)",
+        contactTitleEN: "Contact (demo)",
+        footerJP: "シャルマニラジュ — 1年生向けページ",
+        footerEN: "Niraj Sharma — Year 1 Student Page",
+        socialsJP: ["GitHub","Facebook","Email"],
+        socialsEN: ["GitHub","Facebook","Email"],
+        studyListJP: [
+          "プログラミング基礎（C言語 / Java入門）",
+          "情報処理（データの扱い・ネットワークの基礎）",
+          "Web基礎（HTML / CSS / JavaScript）",
+          "小さな作品で実践（電卓・サイコロ・祭り紹介ページ）"
+        ],
+        studyListEN: [
+          "Programming basics (C / Intro to Java)",
+          "Information processing (data handling & basic networking)",
+          "Web fundamentals (HTML / CSS / JavaScript)",
+          "Practice with small projects (calculator, dice game, festival page)"
+        ],
+        projects: [
+          { titleJP:'電卓アプリ', descJP:'HTML/CSS/JSで作ったシンプルな電卓', titleEN:'Calculator App', descEN:'Simple calculator built with HTML/CSS/JS', link:'calculator/index.html' },
+          { titleJP:'サイコロゲーム', descJP:'ランダムでサイコロを振るゲーム', titleEN:'Dice Game', descEN:'Small dice-rolling game', link:'サイコロゲーム/index.html' },
+          { titleJP:'祭り紹介ページ', descJP:'自分の国の祭りを紹介するページ', titleEN:'Festival Page', descEN:'A page introducing a local festival', link:'festival/index.html' }
+        ],
+        messages: {
+          nameRequiredJP: "お名前を入力してください。",
+          nameRequiredEN: "Please enter your name.",
+          receivedJP: "メッセージを受け取りました（デモ）。",
+          receivedEN: "Message received (demo)."
+        }
       };
-      card.appendChild(img);
-    } else {
-      // 画像がない場合はプレースホルダーを表示
-      const placeholder = document.createElement("div");
-      placeholder.className = "project-image-placeholder";
-      placeholder.textContent = "📱";
-      card.appendChild(placeholder);
-    }
 
-    const title = document.createElement("div");
-    title.className = "project-title";
-    title.style.fontWeight = "600";
-    title.textContent = p.title;
-    card.appendChild(title);
+      // DOM refs
+      const langSelect = document.getElementById('lang');
+      const brandText = document.getElementById('brandText');
+      const nameText = document.getElementById('nameText');
+      const heroLead = document.getElementById('heroLead');
+      const roleText = document.getElementById('roleText');
+      const schoolText = document.getElementById('schoolText');
+      const studyList = document.getElementById('studyList');
+      const studyNote = document.getElementById('studyNote');
+      const projectsList = document.getElementById('projectsList');
+      const yearSpan = document.getElementById('year');
+      const themeToggle = document.getElementById('themeToggle');
+      const body = document.body;
 
-    const desc = document.createElement("div");
-    desc.className = "muted project-desc";
-    desc.style.marginTop = "6px";
-    desc.textContent = p.desc;
-    card.appendChild(desc);
+      yearSpan.textContent = new Date().getFullYear();
 
-    if (p.link) {
-      const a = document.createElement("a");
-      a.href = p.link;
-      a.target = "_blank";
-      a.rel = "noreferrer";
-      a.style.textDecoration = "none";
-      a.style.color = "inherit";
-      a.appendChild(card);
-      projectsList.appendChild(a);
-    } else {
-      projectsList.appendChild(card);
-    }
-  });
-}
+      function renderLanguage(lang){
+        if(lang === 'en'){
+          brandText.textContent = data.brandEN;
+          nameText.textContent = data.nameEN;
+          heroLead.textContent = data.leadEN;
+          roleText.textContent = data.roleEN;
+          schoolText.textContent = data.schoolEN;
+          document.getElementById('studyPlanTitle').textContent = data.studyTitleEN;
+          studyNote.textContent = data.studyNoteEN;
+          document.getElementById('projectsTitle').textContent = data.projectsTitleEN;
+          document.getElementById('contactTitle').textContent = data.contactTitleEN;
+          document.getElementById('footerName').textContent = data.footerEN;
+          document.getElementById('chipGithub').textContent = data.socialsEN[0];
+          document.getElementById('chipFacebook').textContent = data.socialsEN[1];
+          document.getElementById('chipEmail').textContent = data.socialsEN[2];
+          studyList.innerHTML = ''; data.studyListEN.forEach(it=>{ const li=document.createElement('li'); li.textContent=it; studyList.appendChild(li); });
+          renderProjects('en');
+          document.getElementById('aboutTitle').textContent = 'About Me';
+          document.getElementById('aboutCard').innerHTML = `
+            <p>Hello — my name is Sharma Niraj, a first-year student in the Information Processing department at Tokyo Technical College. I am <strong>Nepalese</strong> and came to Japan to study and pursue a career as an IT engineer.</p>
+            <p>I am passionate about programming and IT technologies, and I am currently studying <strong>C, Java, HTML/CSS, and JavaScript</strong>. Although I am still learning, I build small projects on my own to steadily improve my skills.</p>
+            <p>My strengths are <strong>responsibility and persistence</strong>. I value teamwork and actively take on new technologies and challenges.</p>
+            <p>In the future, I aim to gain experience at a Japanese IT company and become an engineer who contributes to society. Thank you for your consideration.</p>
+          `;
+        } else {
+          brandText.textContent = data.brandJP;
+          nameText.textContent = data.nameJP;
+          heroLead.textContent = data.leadJP;
+          roleText.textContent = data.roleJP;
+          schoolText.textContent = data.schoolJP;
+          document.getElementById('studyPlanTitle').textContent = data.studyTitleJP;
+          studyNote.textContent = data.studyNoteJP;
+          document.getElementById('projectsTitle').textContent = data.projectsTitleJP;
+          document.getElementById('contactTitle').textContent = data.contactTitleJP;
+          document.getElementById('footerName').textContent = data.footerJP;
+          document.getElementById('chipGithub').textContent = data.socialsJP[0];
+          document.getElementById('chipFacebook').textContent = data.socialsJP[1];
+          document.getElementById('chipEmail').textContent = data.socialsJP[2];
+          studyList.innerHTML = ''; data.studyListJP.forEach(it=>{ const li=document.createElement('li'); li.textContent=it; studyList.appendChild(li); });
+          renderProjects('jp');
+          document.getElementById('aboutTitle').textContent = '自己紹介';
+          document.getElementById('aboutCard').innerHTML = `
+            <p>はじめまして。現在、専門学校東京テクニカルカレッジ 情報処理科1年の シャルマニラジュと申します。<br><strong>ネパール国籍</strong>で、日本には学習と将来のITエンジニアとしてのキャリアを築くために来日しました。</p>
+            <p>プログラミングとIT技術に強い興味があり、現在 <strong>C言語・Java・HTML/CSS・JavaScript</strong> を中心に学んでいます。まだ学習途中ではありますが、授業以外でも自主的に小さな作品制作に取り組むことで、着実にスキルを伸ばしています。</p>
+            <p>私は<strong>責任感が強く、最後まで諦めず継続できること</strong>が自分の強みです。チームワークを大切にしながら、新しい技術にも積極的にチャレンジしていきたいと考えています。</p>
+            <p>将来は、日本のIT企業で経験を積み、社会に貢献できるエンジニアになることを目標としています。どうぞよろしくお願いいたします。</p>
+          `;
+        }
+      }
 
-// Render about section
-function renderAbout(about, isJapanese = true) {
-  aboutCard.innerHTML = "";
-  
-  const titles = isJapanese ? {
-    interests: "興味・関心",
-    skills: "スキル",
-    goals: "目標",
-    hobbies: "趣味"
-  } : {
-    interests: "Interests",
-    skills: "Skills",
-    goals: "Goals",
-    hobbies: "Hobbies"
-  };
-  
-  // Introduction
-  const intro = document.createElement("p");
-  intro.textContent = about.intro;
-  intro.style.marginBottom = "16px";
-  aboutCard.appendChild(intro);
-  
-  // Interests
-  const interestsTitle = document.createElement("h3");
-  interestsTitle.textContent = titles.interests;
-  interestsTitle.style.fontSize = "16px";
-  interestsTitle.style.marginTop = "20px";
-  interestsTitle.style.marginBottom = "8px";
-  aboutCard.appendChild(interestsTitle);
-  
-  const interestsList = document.createElement("ul");
-  interestsList.style.marginLeft = "20px";
-  interestsList.style.marginBottom = "16px";
-  about.interests.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    interestsList.appendChild(li);
-  });
-  aboutCard.appendChild(interestsList);
-  
-  // Skills
-  const skillsTitle = document.createElement("h3");
-  skillsTitle.textContent = titles.skills;
-  skillsTitle.style.fontSize = "16px";
-  skillsTitle.style.marginTop = "20px";
-  skillsTitle.style.marginBottom = "8px";
-  aboutCard.appendChild(skillsTitle);
-  
-  const skillsList = document.createElement("ul");
-  skillsList.style.marginLeft = "20px";
-  skillsList.style.marginBottom = "16px";
-  about.skills.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    skillsList.appendChild(li);
-  });
-  aboutCard.appendChild(skillsList);
-  
-  // Goals
-  const goalsTitle = document.createElement("h3");
-  goalsTitle.textContent = titles.goals;
-  goalsTitle.style.fontSize = "16px";
-  goalsTitle.style.marginTop = "20px";
-  goalsTitle.style.marginBottom = "8px";
-  aboutCard.appendChild(goalsTitle);
-  
-  const goals = document.createElement("p");
-  goals.textContent = about.goals;
-  goals.style.marginBottom = "16px";
-  aboutCard.appendChild(goals);
-  
-  // Hobbies
-  const hobbiesTitle = document.createElement("h3");
-  hobbiesTitle.textContent = titles.hobbies;
-  hobbiesTitle.style.fontSize = "16px";
-  hobbiesTitle.style.marginTop = "20px";
-  hobbiesTitle.style.marginBottom = "8px";
-  aboutCard.appendChild(hobbiesTitle);
-  
-  const hobbies = document.createElement("p");
-  hobbies.textContent = about.hobbies;
-  hobbies.style.marginBottom = "0";
-  aboutCard.appendChild(hobbies);
-}
+      function renderProjects(lang){
+        projectsList.innerHTML = '';
+        data.projects.forEach((p,i)=>{
+          const el = document.createElement('article');
+          el.className='project';
+          const title = lang==='en'?p.titleEN:p.titleJP;
+          const desc  = lang==='en'?p.descEN:p.descJP;
+          el.innerHTML = `<div><h3>${title}</h3><p>${desc}</p></div><div style='display:flex;gap:8px;justify-content:flex-end'><a class='chip' href='${p.link}' target='_blank' rel='noopener'>View</a></div>`;
+          el.style.opacity = 0; el.style.transform='translateY(12px)';
+          projectsList.appendChild(el);
+          setTimeout(()=>{ el.style.transition='opacity .6s ease, transform .6s ease'; el.style.opacity=1; el.style.transform='none'; }, 160*i);
+        });
+      }
 
-// language switch
-document.getElementById("lang").addEventListener("change", (e) => {
-  const v = e.target.value;
-  if (v === "jp") {
-    heroLead.textContent = CONFIG.BIO_JP;
-    renderAbout(CONFIG.ABOUT_JP, true);
-  } else {
-    heroLead.textContent = CONFIG.BIO_EN;
-    renderAbout(CONFIG.ABOUT_EN, false);
-  }
-});
+      // handlers
+      langSelect.addEventListener('change', e=> renderLanguage(e.target.value));
+      themeToggle.addEventListener('click', ()=>{
+        const cur = body.getAttribute('data-theme') || 'dark';
+        const next = cur==='dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', next);
+        themeToggle.textContent = next==='dark' ? (langSelect.value==='en' ? 'Light' : 'ライト') : (langSelect.value==='en' ? 'Dark' : 'ダーク');
+        try{ localStorage.setItem('site-theme', next); }catch(e){}
+      });
+      try{ const saved=localStorage.getItem('site-theme'); if(saved) body.setAttribute('data-theme', saved);}catch(e){}
 
-// theme toggle
-const themeBtn = document.getElementById("themeToggle");
-function setTheme(t) {
-  document.body.setAttribute("data-theme", t);
-  themeBtn.textContent = t === "dark" ? "ライト" : "ダーク";
-}
-setTheme("light");
+      // socials open
+      document.getElementById('socials').addEventListener('click', (ev)=>{
+        const btn = ev.target.closest('.chip'); if(!btn) return;
+        const link = btn.dataset.link; if(link) window.open(link,'_blank','noopener');
+      });
 
-themeBtn.addEventListener("click", () =>
-  setTheme(document.body.getAttribute("data-theme") === "dark" ? "light" : "dark")
-);
+      // form (demo) — keeps storing in localStorage and shows demo message
+      document.getElementById('contactForm').addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const name = document.getElementById('nameField').value.trim();
+        const lang = langSelect.value === 'en' ? 'en' : 'jp';
+        if(!name){
+          document.getElementById('formStatus').textContent = lang==='en' ? data.messages.nameRequiredEN : data.messages.nameRequiredJP;
+          document.getElementById('formStatus').style.color = 'crimson';
+          return;
+        }
+        try{
+          const saved = JSON.parse(localStorage.getItem('contactMessages')||'[]');
+          saved.push({name,subject:document.getElementById('subjectField').value,message:document.getElementById('messageField').value,when:new Date().toISOString()});
+          localStorage.setItem('contactMessages',JSON.stringify(saved));
+        }catch(e){}
+        document.getElementById('formStatus').textContent = lang==='en' ? data.messages.receivedEN : data.messages.receivedJP;
+        document.getElementById('formStatus').style.color = 'lime';
+        document.getElementById('contactForm').reset();
+      });
 
-// contact form
-document.getElementById("contactForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const name = document.getElementById("nameField").value;
-  const subject = document.getElementById("subjectField").value || "連絡";
-  const message = document.getElementById("messageField").value;
-  const body = encodeURIComponent(`Name: ${name}\n\n${message}`);
-  window.location.href = `mailto:${CONFIG.EMAIL}?subject=${encodeURIComponent(
-    subject
-  )}&body=${body}`;
-});
+      // reveal observer
+      const revealTargets = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries)=>{ entries.forEach(ent=>{ if(ent.isIntersecting){ ent.target.classList.add('show'); io.unobserve(ent.target); } }); }, {threshold:0.12});
+      revealTargets.forEach(t=> io.observe(t));
 
-// initialize
-init();
+      // typewriter (runs after renderLanguage sets text)
+      (function animateName(){
+        const el = document.getElementById('nameText');
+        const txt = el.textContent || '';
+        el.textContent = '';
+        let i=0; const speed=80;
+        const interval = setInterval(()=>{ el.textContent += txt[i++]||''; if(i>txt.length){ clearInterval(interval); } }, speed);
+      })();
+
+      document.addEventListener('DOMContentLoaded', ()=>{
+        const initialLang = langSelect && langSelect.value ? langSelect.value : 'jp';
+        renderLanguage(initialLang);
+        setTimeout(()=>{ document.querySelectorAll('.reveal').forEach((r,i)=> r.style.transitionDelay = i*80 + 'ms'); }, 120);
+      });
+  
