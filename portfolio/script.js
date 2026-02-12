@@ -1,13 +1,15 @@
  const data = {
-        brandJP: "シャルマニラジュ（学生）",
-        brandEN: "Sharma Niraj (Student)",
-        nameJP: "こんにちは。私は シャルマニラジュ、情報処理科 1年生です。",
+        brandJP: "シャルマ ニラジュ — 就職活動用ポートフォリオ",
+        brandEN: "Sharma Niraj — Job Hunting Portfolio",
+        nameJP: "シャルマ ニラジュ（情報処理科 1年）です。ITエンジニアを目指しています。",
         nameEN:
-          "Hello, I am Sharma Niraj, a first-year student in Information Processing.",
+          "I am Sharma Niraj (Year 1, Information Processing). Aspiring IT engineer.",
         leadJP:
-          "基礎を丁寧に学び、小さな作品を積み重ねています。興味はウェブ制作・プログラミング・ネットワーク基礎です。",
+          "基礎力・継続力・責任感を武器に、Web・プログラミング・ネットワークの分野で成長中です。",
         leadEN:
-          "Learning fundamentals carefully and building small projects. Interests: web development, programming, and basic networking.",
+          "Focused on fundamentals, consistency, and responsibility. Growing in web, programming, and networking.",
+        skillsTitleJP: "スキル",
+        skillsTitleEN: "Skills",
         roleJP: "情報処理科 1年生（2年制）",
         roleEN: "1st year — Information Processing",
         schoolJP: "専門学校東京テクニカルカレッジ／情報処理科",
@@ -66,6 +68,38 @@
             link: "festival/index.html",
             img: "images/fes.png",
           },
+          {
+            titleJP: "タイピング練習",
+            titleEN: "Typing Practice",
+            descJP: "MonkeyType風のタイピング練習サイト",
+            descEN: "Monkeytype-style typing practice site",
+            link: "typing/index.html",
+            img: "images/TYPING.png",
+          },
+          {
+            titleJP: "ToDoアプリ",
+            titleEN: "ToDo App",
+            descJP: "ローカル保存・アニメーション付きタスク管理",
+            descEN: "Task manager with local storage and animations",
+            link: "todo/index.html",
+            img: "images/todo.jpg",
+          },
+          {
+            titleJP: "成績計算",
+            titleEN: "Grade Calculator",
+            descJP: "平均・加重平均・GPAを計算する簡易ツール",
+            descEN: "Simple tool to compute average, weighted average, and GPA",
+            link: "grades/index.html",
+            img: "images/grades.png",
+          },
+        ],
+        skills: [
+          { nameJP: "HTML/CSS", nameEN: "HTML/CSS", level: 70 },
+          { nameJP: "JavaScript", nameEN: "JavaScript", level: 65 },
+          { nameJP: "Java", nameEN: "Java", level: 55 },
+          { nameJP: "C言語", nameEN: "C", level: 60 },
+          { nameJP: "Oracle SQL", nameEN: "Oracle SQL", level: 55 },
+          { nameJP: "ネットワーク基礎", nameEN: "Networking Basics", level: 50 },
         ],
         messages: {
           nameRequiredJP: "お名前を入力してください。",
@@ -89,6 +123,11 @@
       const themeToggle = document.getElementById("themeToggle");
       const body = document.body;
       const aboutCard = document.getElementById("aboutCard");
+      const bgSelect = document.getElementById("bgSelect");
+      const skillsList = document.getElementById("skillsList");
+      const resumeBtn = document.getElementById("resumeBtn");
+      const bgSpeed = document.getElementById("bgSpeed");
+      const bgIntensity = document.getElementById("bgIntensity");
 
       yearSpan.textContent = new Date().getFullYear();
 
@@ -150,11 +189,14 @@
             data.projectsTitleEN;
           document.getElementById("contactTitle").textContent =
             data.contactTitleEN;
+          document.getElementById("skillsTitle").textContent =
+            data.skillsTitleEN;
           document.getElementById("footerName").textContent = data.footerEN;
           document.getElementById("chipGithub").textContent = data.socialsEN[0];
           document.getElementById("chipFacebook").textContent =
             data.socialsEN[1];
           document.getElementById("chipEmail").textContent = data.socialsEN[2];
+          if (resumeBtn) resumeBtn.textContent = "Resume (PDF)";
 
          
           aboutCard.innerHTML = `
@@ -176,11 +218,14 @@
             data.projectsTitleJP;
           document.getElementById("contactTitle").textContent =
             data.contactTitleJP;
+          document.getElementById("skillsTitle").textContent =
+            data.skillsTitleJP;
           document.getElementById("footerName").textContent = data.footerJP;
           document.getElementById("chipGithub").textContent = data.socialsJP[0];
           document.getElementById("chipFacebook").textContent =
             data.socialsJP[1];
           document.getElementById("chipEmail").textContent = data.socialsJP[2];
+          if (resumeBtn) resumeBtn.textContent = "履歴書(PDF)";
 
          
           aboutCard.innerHTML = `
@@ -201,6 +246,7 @@
         });
         
         renderProjects(lang);
+        renderSkills(lang);
       }
 
       langSelect.addEventListener("change", (e) => {
@@ -223,11 +269,327 @@
           localStorage.setItem("site-theme", next);
         } catch (e) {}
       });
+      if (bgSelect) {
+        bgSelect.addEventListener("change", (e) => {
+          const v = e.target.value || "gradient";
+          body.setAttribute("data-bg", v);
+          try {
+            localStorage.setItem("site-bg", v);
+          } catch (e) {}
+        });
+      }
+      function readControls() {
+        const s = Math.max(1, Math.min(10, parseInt((bgSpeed && bgSpeed.value) || "5", 10)));
+        const i = Math.max(1, Math.min(10, parseInt((bgIntensity && bgIntensity.value) || "6", 10)));
+        return { s, i };
+      }
+      function saveControls() {
+        try {
+          if (bgSpeed) localStorage.setItem("bg-speed", bgSpeed.value);
+          if (bgIntensity) localStorage.setItem("bg-intensity", bgIntensity.value);
+        } catch (e) {}
+      }
+      function renderSkills(lang) {
+        if (!skillsList) return;
+        skillsList.innerHTML = "";
+        data.skills.forEach((s, i) => {
+          const el = document.createElement("article");
+          el.className = "skill";
+          const title = lang === "en" ? s.nameEN : s.nameJP;
+          el.innerHTML = `
+            <h3 style="margin:0;font-size:15px">${escapeHtml(title)}</h3>
+            <div class="meter" aria-label="${title}">
+              <div class="val" style="width:${Math.max(0, Math.min(100, s.level))}%"></div>
+            </div>
+          `;
+          el.style.opacity = 0;
+          el.style.transform = "translateY(12px)";
+          skillsList.appendChild(el);
+          setTimeout(() => {
+            el.style.transition = "opacity .6s ease, transform .6s ease";
+            el.style.opacity = 1;
+            el.style.transform = "none";
+          }, 120 * i);
+        });
+      }
       try {
         const saved = localStorage.getItem("site-theme");
         if (saved) body.setAttribute("data-theme", saved);
       } catch (e) {}
+      try {
+        const savedBg = localStorage.getItem("site-bg");
+        const v = savedBg || "gradient";
+        body.setAttribute("data-bg", v);
+        if (bgSelect) bgSelect.value = v;
+      } catch (e) {}
+      try {
+        const sv = localStorage.getItem("bg-speed");
+        const iv = localStorage.getItem("bg-intensity");
+        if (bgSpeed && sv) bgSpeed.value = sv;
+        if (bgIntensity && iv) bgIntensity.value = iv;
+      } catch (e) {}
 
+      let bgCanvas = document.getElementById("bgCanvas");
+      let bgCtx = bgCanvas ? bgCanvas.getContext("2d") : null;
+      let rafId = null;
+      let matrixRafId = null;
+      let hexRafId = null;
+      let codeRafId = null;
+      let running = "";
+      function fitCanvas() {
+        if (!bgCanvas) return;
+        const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+        bgCanvas.width = Math.floor(innerWidth * dpr);
+        bgCanvas.height = Math.floor(innerHeight * dpr);
+        bgCanvas.style.width = innerWidth + "px";
+        bgCanvas.style.height = innerHeight + "px";
+        if (bgCtx) bgCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      function stopParticles() {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = null;
+        running = "";
+        window.removeEventListener("mousemove", onMouse);
+        window.removeEventListener("resize", onResize);
+      }
+      function stopMatrix() {
+        if (matrixRafId) cancelAnimationFrame(matrixRafId);
+        matrixRafId = null;
+        running = "";
+        window.removeEventListener("resize", onResize);
+      }
+      function stopHex() {
+        if (hexRafId) cancelAnimationFrame(hexRafId);
+        hexRafId = null;
+        running = "";
+        window.removeEventListener("resize", onResize);
+      }
+      function stopCode() {
+        if (codeRafId) cancelAnimationFrame(codeRafId);
+        codeRafId = null;
+        running = "";
+        window.removeEventListener("resize", onResize);
+      }
+      function onResize() {
+        fitCanvas();
+      }
+      let mouseX = 0;
+      let mouseY = 0;
+      function onMouse(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      }
+      function startParticles() {
+        if (!bgCanvas || !bgCtx) return;
+        stopMatrix();
+        stopHex();
+        stopCode();
+        fitCanvas();
+        window.addEventListener("resize", onResize);
+        window.addEventListener("mousemove", onMouse);
+        running = "particles";
+        const ctl = readControls();
+        const base = Math.max(40, Math.min(140, Math.floor((innerWidth * innerHeight) / 14000)));
+        const count = Math.floor(base * (0.6 + ctl.i / 10));
+        const parts = [];
+        for (let i = 0; i < count; i++) {
+          parts.push({
+            x: Math.random() * innerWidth,
+            y: Math.random() * innerHeight,
+            vx: (Math.random() - 0.5) * (0.3 + ctl.s * 0.08),
+            vy: (Math.random() - 0.5) * (0.3 + ctl.s * 0.08),
+            r: 1 + Math.random() * 2,
+          });
+        }
+        function loop() {
+          bgCtx.clearRect(0, 0, innerWidth, innerHeight);
+          for (let i = 0; i < parts.length; i++) {
+            const p = parts[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < -10) p.x = innerWidth + 10;
+            if (p.x > innerWidth + 10) p.x = -10;
+            if (p.y < -10) p.y = innerHeight + 10;
+            if (p.y > innerHeight + 10) p.y = -10;
+          }
+          for (let i = 0; i < parts.length; i++) {
+            const p = parts[i];
+            const dx = mouseX - p.x;
+            const dy = mouseY - p.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 100 + ctl.i * 8) {
+              p.vx += dx * (0.0006 + ctl.s * 0.00008);
+              p.vy += dy * (0.0006 + ctl.s * 0.00008);
+            }
+          }
+          for (let i = 0; i < parts.length; i++) {
+            const p = parts[i];
+            bgCtx.beginPath();
+            bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            bgCtx.fillStyle = body.getAttribute("data-theme") === "dark" ? "rgba(230,238,248,0.8)" : "rgba(6,17,37,0.6)";
+            bgCtx.fill();
+          }
+          for (let i = 0; i < parts.length; i++) {
+            for (let j = i + 1; j < parts.length; j++) {
+              const a = parts[i];
+              const b = parts[j];
+              const dx = a.x - b.x;
+              const dy = a.y - b.y;
+              const d = dx * dx + dy * dy;
+              const lim = 100 + ctl.i * 12;
+              if (d < lim * lim) {
+                const alpha = Math.max(0, 1 - d / (lim * lim));
+                bgCtx.strokeStyle = body.getAttribute("data-theme") === "dark" ? "rgba(230,238,248," + (alpha * 0.25) + ")" : "rgba(6,17,37," + (alpha * 0.25) + ")";
+                bgCtx.lineWidth = 1;
+                bgCtx.beginPath();
+                bgCtx.moveTo(a.x, a.y);
+                bgCtx.lineTo(b.x, b.y);
+                bgCtx.stroke();
+              }
+            }
+          }
+          rafId = requestAnimationFrame(loop);
+        }
+        loop();
+      }
+      function startMatrix() {
+        if (!bgCanvas || !bgCtx) return;
+        stopParticles();
+        stopHex();
+        stopCode();
+        fitCanvas();
+        window.addEventListener("resize", onResize);
+        running = "matrix";
+        const ctl = readControls();
+        const cols = Math.floor(innerWidth / 12);
+        const ypos = new Array(cols).fill(0);
+        const chars = "01";
+        function loop() {
+          bgCtx.fillStyle = body.getAttribute("data-theme") === "dark" ? "rgba(7,16,38,0.15)" : "rgba(234,242,255,0.15)";
+          bgCtx.fillRect(0, 0, innerWidth, innerHeight);
+          for (let i = 0; i < cols; i++) {
+            const text = chars[Math.floor(Math.random() * chars.length)];
+            const x = i * 12;
+            const y = ypos[i] * 16;
+            bgCtx.fillStyle = body.getAttribute("data-theme") === "dark" ? "rgba(0,255,135,0.9)" : "rgba(37,99,235,0.9)";
+            bgCtx.font = "14px monospace";
+            bgCtx.fillText(text, x, y);
+            if (y > innerHeight && Math.random() > 0.975) ypos[i] = 0;
+            else ypos[i] += 0.5 + ctl.s * 0.6;
+          }
+          matrixRafId = requestAnimationFrame(loop);
+        }
+        loop();
+      }
+      function startHex() {
+        if (!bgCanvas || !bgCtx) return;
+        stopParticles();
+        stopMatrix();
+        stopCode();
+        fitCanvas();
+        window.addEventListener("resize", onResize);
+        running = "hex";
+        const ctl = readControls();
+        const cols = Math.floor(innerWidth / 12);
+        const ypos = new Array(cols).fill(0);
+        const chars = "0123456789ABCDEF";
+        function loop() {
+          bgCtx.fillStyle = body.getAttribute("data-theme") === "dark" ? "rgba(7,16,38,0.12)" : "rgba(234,242,255,0.12)";
+          bgCtx.fillRect(0, 0, innerWidth, innerHeight);
+          for (let i = 0; i < cols; i++) {
+            const text = chars[Math.floor(Math.random() * chars.length)];
+            const x = i * 12;
+            const y = ypos[i] * 16;
+            const hue = 200 + (i % 40);
+            bgCtx.fillStyle = body.getAttribute("data-theme") === "dark" ? "hsl(" + hue + " 90% 60% / 0.9)" : "hsl(" + (hue - 120) + " 80% 40% / 0.9)";
+            bgCtx.font = "13px monospace";
+            bgCtx.fillText(text, x, y);
+            if (y > innerHeight && Math.random() > 0.97) ypos[i] = 0;
+            else ypos[i] += 0.6 + ctl.s * 0.6;
+          }
+          hexRafId = requestAnimationFrame(loop);
+        }
+        loop();
+      }
+      function startCode() {
+        if (!bgCanvas || !bgCtx) return;
+        stopParticles();
+        stopMatrix();
+        stopHex();
+        fitCanvas();
+        window.addEventListener("resize", onResize);
+        running = "code";
+        const ctl = readControls();
+        const lines = [
+          "const sum = (a,b) => a + b;",
+          "for (let i=0;i<10;i++) process(i);",
+          "SELECT * FROM users WHERE active = 1;",
+          "public static void main(String[] args) {}",
+          "function render(){ requestAnimationFrame(render); }",
+          "if (err) throw err;",
+          "ping 8.8.8.8 -t",
+          "git status",
+          "console.log('Hello');",
+          "int x = 0; x++;",
+          "fetch('/api').then(r=>r.json())",
+          "C:\\> dir",
+        ];
+        const stream = [];
+        const count = Math.floor(8 + ctl.i * 1.8);
+        for (let i = 0; i < count; i++) {
+          stream.push({
+            text: lines[Math.floor(Math.random() * lines.length)],
+            x: -40 + Math.random() * (innerWidth - 80),
+            y: Math.random() * innerHeight,
+            vy: (-0.4 - ctl.s * 0.2) + Math.random() * (-0.2),
+          });
+        }
+        function loop() {
+          bgCtx.fillStyle = body.getAttribute("data-theme") === "dark" ? "rgba(7,16,38,0.12)" : "rgba(234,242,255,0.12)";
+          bgCtx.fillRect(0, 0, innerWidth, innerHeight);
+          bgCtx.font = "12px monospace";
+          for (let i = 0; i < stream.length; i++) {
+            const ln = stream[i];
+            ln.y += ln.vy;
+            if (ln.y < -40) {
+              ln.y = innerHeight + 20;
+              ln.text = lines[Math.floor(Math.random() * lines.length)];
+              ln.x = -40 + Math.random() * (innerWidth - 80);
+            }
+            bgCtx.fillStyle = body.getAttribute("data-theme") === "dark" ? "rgba(230,238,248,0.85)" : "rgba(6,17,37,0.7)";
+            bgCtx.fillText(ln.text, ln.x, ln.y);
+          }
+          codeRafId = requestAnimationFrame(loop);
+        }
+        loop();
+      }
+      function ensureBackground() {
+        const v = body.getAttribute("data-bg");
+        if (v === "particles") startParticles();
+        else if (v === "matrix") startMatrix();
+        else if (v === "hex") startHex();
+        else if (v === "code") startCode();
+        else {
+          stopParticles();
+          stopMatrix();
+          stopHex();
+          stopCode();
+        }
+      }
+      ensureBackground();
+      if (bgSelect) {
+        bgSelect.addEventListener("change", () => {
+          ensureBackground();
+        });
+      }
+      if (bgSpeed) bgSpeed.addEventListener("input", () => {
+        saveControls();
+        ensureBackground();
+      });
+      if (bgIntensity) bgIntensity.addEventListener("input", () => {
+        saveControls();
+        ensureBackground();
+      });
       
       document.getElementById("contactForm").addEventListener("submit", (e) => {
         e.preventDefault();

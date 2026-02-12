@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>シャルマニラジュ — 学生ポートフォリオ（1年生向け）</title>
+    <title>シャルマ ニラジュ — 就職活動用ポートフォリオ</title>
     <meta name="theme-color" content="#071026" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap"
@@ -14,6 +14,7 @@
   </head>
   <body data-theme="dark">
     <div class="bg-shapes" aria-hidden="true">
+      <canvas id="bgCanvas"></canvas>
       <div class="blob b1"></div>
       <div class="blob b2"></div>
     </div>
@@ -22,7 +23,7 @@
       <header>
         <div class="brand">
           <div class="logo">N</div>
-          <span id="brandText">シャルマニラジュ（学生）</span>
+          <span id="brandText">シャルマ ニラジュ — 就職活動用ポートフォリオ</span>
         </div>
         <div class="controls">
           <label for="lang" class="visually-hidden">言語</label>
@@ -31,6 +32,21 @@
             <option value="en">English</option>
           </select>
           <button id="themeToggle">ライト</button>
+          <label for="bgSelect" class="visually-hidden">背景</label>
+          <select id="bgSelect" aria-label="背景テーマ">
+            <option value="gradient">グラデーション</option>
+            <option value="mesh">メッシュ</option>
+            <option value="grid">グリッド</option>
+            <option value="particles">パーティクル</option>
+            <option value="matrix">マトリックス</option>
+            <option value="hex">HEXレイン</option>
+            <option value="code">コードフロー</option>
+          </select>
+          <label for="bgSpeed" class="visually-hidden">速度</label>
+          <input id="bgSpeed" type="range" min="1" max="10" step="1" value="5" aria-label="速度" />
+          <label for="bgIntensity" class="visually-hidden">強度</label>
+          <input id="bgIntensity" type="range" min="1" max="10" step="1" value="6" aria-label="強度" />
+          <a id="resumeBtn" class="chip" href="images/resume.pdf" target="_blank" rel="noopener">履歴書(PDF)</a>
         </div>
       </header>
 
@@ -107,6 +123,11 @@
       <section class="reveal" id="aboutSection">
         <h2 id="aboutTitle">自己紹介</h2>
         <div class="card" id="aboutCard"></div>
+      </section>
+
+      <section class="reveal">
+        <h2 id="skillsTitle">スキル</h2>
+        <div class="skills" id="skillsList" style="margin-top: 8px"></div>
       </section>
 
       <section class="reveal">

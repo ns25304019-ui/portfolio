@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Typing Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="bgCanvas"></canvas>
+    <div class="wrap">
+      <header class="head">
+        <h1>Typing Practice</h1>
+        <div class="ctrls">
+          <label for="duration">時間</label>
+          <select id="duration">
+            <option value="15">15s</option>
+            <option value="30" selected>30s</option>
+            <option value="60">60s</option>
+          </select>
+          <button id="startBtn">Start</button>
+          <a href="../index.html" class="backBTN">Back</a>
+        </div>
+      </header>
+
+      <main class="main">
+        <div id="words" class="words"></div>
+        <div class="hint" id="hint">タイプすると開始します</div>
+        <div class="stats">
+          <div>Time <span id="time">30</span>s</div>
+          <div>WPM <span id="wpm">0</span></div>
+          <div>Accuracy <span id="acc">0%</span></div>
+        </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -68,6 +68,29 @@ header {
   gap: 8px;
   align-items: center;
 }
+#bgSpeed, #bgIntensity {
+  appearance: none;
+  width: 120px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  cursor: pointer;
+}
 select,
 button,
 a.chip {
@@ -89,6 +112,14 @@ select {
   inset: 0;
   pointer-events: none;
   z-index: 0;
+}
+#bgCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 .blob {
   position: absolute;
@@ -125,6 +156,25 @@ select {
     transform: translateY(0) rotate(0);
   }
 }
+.bg-shapes { background: none; }
+[data-bg="mesh"] .blob,
+[data-bg="grid"] .blob { display: none; }
+[data-bg="particles"] .blob,
+[data-bg="matrix"] .blob { display: none; }
+[data-bg="mesh"] .bg-shapes {
+  background:
+    radial-gradient(600px 600px at 5% 10%, rgba(124,92,255,0.18), transparent 60%),
+    radial-gradient(500px 500px at 90% 20%, rgba(6,182,212,0.18), transparent 60%),
+    radial-gradient(400px 400px at 10% 90%, rgba(96,165,250,0.15), transparent 60%);
+}
+[data-bg="grid"] .bg-shapes {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(230,238,248,0.06), transparent 1px);
+  background-size: 18px 18px;
+  opacity: 0.6;
+}
+[data-bg="particles"] #bgCanvas,
+[data-bg="matrix"] #bgCanvas { opacity: 1; }
 .hero {
   display: grid;
   grid-template-columns: 1fr 360px;
@@ -214,6 +264,38 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
+}
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+.skill {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--glass);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.meter {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.meter .val {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  width: 0%;
+  transition: width 0.6s ease;
 }
 .project {
   padding: 14px;
