@@ -271,7 +271,7 @@
       });
       if (bgSelect) {
         bgSelect.addEventListener("change", (e) => {
-          const v = e.target.value || "gradient";
+          const v = e.target.value || "particles";
           body.setAttribute("data-bg", v);
           try {
             localStorage.setItem("site-bg", v);
@@ -317,10 +317,10 @@
         if (saved) body.setAttribute("data-theme", saved);
       } catch (e) {}
       try {
-        const savedBg = localStorage.getItem("site-bg");
-        const v = savedBg || "gradient";
+        const v = "particles";
         body.setAttribute("data-bg", v);
         if (bgSelect) bgSelect.value = v;
+        localStorage.setItem("site-bg", v);
       } catch (e) {}
       try {
         const sv = localStorage.getItem("bg-speed");
