@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="bgCanvas"></canvas>
+    <div class="wrap">
+      <header class="head">
+        <h1>ToDo App</h1>
+        <a href="../index.html" class="backBTN">Back</a>
+      </header>
+      <main class="main">
+        <div class="controls">
+          <input id="todoInput" type="text" placeholder="タスクを入力" />
+          <button id="addBtn">追加</button>
+          <button id="clearDoneBtn">完了を削除</button>
+        </div>
+        <ul id="todoList" class="list"></ul>
+        <div class="stats">
+          <div>合計 <span id="total">0</span></div>
+          <div>完了 <span id="done">0</span></div>
+        </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

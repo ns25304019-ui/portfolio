@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chhath - Sun Worship Festival | チャット - 太陽崇拝の祭り | Nepal Festival Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #e53e3e;
+      --accent-color: #f6ad55;
+      --text-primary: #2d3748;
+      --text-secondary: #4a5568;
+      --background-light: #f7fafc;
+      --background-white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--background-light);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    header {
+      background: var(--background-white);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--background-light);
+      color: var(--primary-color);
+    }
+
+    .nav-button {
+      background: var(--secondary-color);
+      color: white !important;
+      padding: 0.75rem 1.5rem !important;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav-button:hover {
+      background: #c53030;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 50%, #4ecdc4 100%);
+      color: white;
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('images/chhath.jpg') center center / cover no-repeat;
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Main Content */
+    main {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .content-section {
+      margin-top: 3rem;
+    }
+
+    .content-item {
+      background: var(--background-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .content-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .content-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .item-image {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .item-content {
+      padding: 2rem;
+      flex: 1;
+    }
+
+    .item-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .item-description {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .back-button {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.125rem;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: #2c5282;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-text {
+      opacity: 0.8;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .content-item {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .item-image {
+        width: 100%;
+        height: 250px;
+      }
+
+      .item-content {
+        padding: 1.5rem;
+      }
+
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 2rem 0;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Focus states */
+    a:focus,
+    button:focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+
+    /* Image Modal */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content {
+      position: relative;
+      margin: auto;
+      padding: 0;
+      width: 80%;
+      max-width: 800px;
+      max-height: 80vh;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: zoomIn 0.3s ease;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s ease;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .item-image {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .item-image:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: translateY(-50%) scale(0.8); opacity: 0; }
+      to { transform: translateY(-50%) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="images/map.jpg" alt="Nepal Culture Guide Logo" class="logo">
+          <div class="brand">
+            <div class="brand-title">Nepal Festival Guide | ネパール祭りガイド</div>
+            <div class="brand-subtitle">Discover Traditional Celebrations | 伝統的な祝祭を発見</div>
+          </div>
+        </div>
+        
+        <nav>
+          <ul>
+            <li><a href="index.html">Home | ホーム</a></li>
+            <li><a href="festival.html">All Festivals | すべての祭り</a></li>
+            <li><a href="help.html" class="nav-button">Help | ヘルプ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <div class="hero-content fade-in-up">
+        <h1>Chhath - Sun Worship Festival | チャット - 太陽崇拝の祭り</h1>
+        <p><strong>English:</strong> Experience the ancient Vedic festival dedicated to the Sun God, celebrated with great devotion in Nepal's Terai region<br><br><strong>日本語:</strong> ネパールのテライ地域で大きな献身をもって祝われる太陽神に捧げられた古代ヴェーダの祭りを体験してください</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <h2 class="section-title">About Chhath | チャットについて</h2>
+        <p class="section-subtitle"><strong>English:</strong> Chhath is an ancient Hindu festival dedicated to the Sun God (Surya) and Chhathi Maiya (Goddess Usha), celebrated with great devotion and purity.<br><br><strong>日本語:</strong> チャットは太陽神（スーリヤ）とチャッティ・マイヤ（女神ウシャ）に捧げられた古代ヒンドゥー教の祭りで、大きな献身と純粋さをもって祝われます。</p>
+      </div>
+      
+      <div class="content-section">
+        <div class="content-item fade-in-up">
+          <img src="images/chhath.jpg" alt="Chhath Festival" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Festival Overview (祭りの概要)</h3>
+            <p class="item-description"><strong>English:</strong> Chhath is a four-day festival that involves rigorous fasting, prayer, and offerings to the Sun God. It's celebrated mainly in the Terai region of Nepal and is considered one of the most important festivals for the Maithili community.<br><br><strong>日本語:</strong> チャットは太陽神への厳格な断食、祈り、供物を含む4日間の祭りです。主にネパールのテライ地域で祝われ、マイティリコミュニティにとって最も重要な祭りの一つと考えられています。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/chhath2.jpg" alt="Sun Worship" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Sun Worship Rituals (太陽崇拝の儀式)</h3>
+            <p class="item-description"><strong>English:</strong> Devotees offer prayers to the rising and setting sun, standing in water for hours. The rituals are performed at rivers, ponds, or other water bodies, symbolizing the connection between humans and nature.<br><br><strong>日本語:</strong> 信者は昇る太陽と沈む太陽に祈りを捧げ、何時間も水中に立ち続けます。儀式は川、池、その他の水域で行われ、人間と自然のつながりを象徴します。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/chhath3.jpg" alt="Traditional Offerings" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Traditional Offerings (伝統的な供物)</h3>
+            <p class="item-description"><strong>English:</strong> Special offerings include thekuwa (sweet bread), fruits, sugarcane, and other traditional items. These offerings are prepared with great care and devotion, following ancient traditions.<br><br><strong>日本語:</strong> 特別な供物にはテクワ（甘いパン）、果物、サトウキビ、その他の伝統的な品物が含まれます。これらの供物は古代の伝統に従い、大きな注意と献身をもって準備されます。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/chhath4.jpg" alt="Family Celebrations" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Family Traditions (家族の伝統)</h3>
+            <p class="item-description"><strong>English:</strong> Chhath is a family festival where all members participate in the rituals. Women play a central role in the celebrations, leading the prayers and maintaining the purity of the festival.<br><br><strong>日本語:</strong> チャットは家族全員が儀式に参加する家族の祭りです。女性は祝祭で中心的な役割を果たし、祈りを導き、祭りの純粋性を維持します。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/chhath5.jpg" alt="Community Gatherings" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Community Spirit (コミュニティ精神)</h3>
+            <p class="item-description"><strong>English:</strong> The festival brings communities together, with people gathering at water bodies to perform rituals collectively. It's a time for social bonding and spiritual reflection.<br><br><strong>日本語:</strong> 祭りはコミュニティを結集させ、人々が水域に集まって儀式を共同で行います。社会的結束と精神的省察の時です。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/chhath6.jpg" alt="Spiritual Significance" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Spiritual Significance (精神的意義)</h3>
+            <p class="item-description"><strong>English:</strong> Chhath is believed to bring prosperity, good health, and happiness to families. The festival emphasizes the importance of nature worship and environmental consciousness in Hindu culture.<br><br><strong>日本語:</strong> チャットは家族に繁栄、健康、幸福をもたらすと信じられています。祭りはヒンドゥー文化における自然崇拝と環境意識の重要性を強調します。</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="back-button">
+        <a href="festival.html" class="back-link">
+          ← Back to All Festivals | すべての祭りに戻る
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">&copy; 2025 Nepal Festival Guide. GROUP-I</p>
+        <p class="footer-text">Discovering the heart of Nepalese culture through its festivals.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="image-modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img class="modal-image" id="modalImage" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    // Get the modal
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementsByClassName('close')[0];
+
+    // Get all images with click functionality
+    const images = document.querySelectorAll('.item-image');
+
+    // Add click event to all images
+    images.forEach(img => {
+      img.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalImg.src = this.src;
+        modalImg.alt = this.alt;
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      });
+    });
+
+    // Close modal when clicking the X
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    });
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+      }
+    });
+  </script>
+</body>
+</html>

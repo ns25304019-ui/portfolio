@@ -1,0 +1,38 @@
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+  background: linear-gradient(120deg, #0b1226, #071026, #0b1226);
+  background-size: 200% 200%;
+  animation: bgShift 14s ease infinite;
+  color: #e6eef8;
+}
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+#bgCanvas { position: fixed; inset: 0; width: 100%; height: 100%; opacity: 0.8; z-index: 0; }
+.wrap { max-width: 900px; margin: 20px auto; padding: 16px; position: relative; z-index: 1; }
+.head { display: flex; align-items: center; justify-content: space-between; }
+.backBTN, .controls button {
+  padding: 8px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05); color: #e6eef8; text-decoration: none; cursor: pointer;
+}
+.main { display: grid; gap: 12px; margin-top: 12px; }
+.controls { display: flex; gap: 8px; align-items: center; }
+.table { display: grid; gap: 8px; }
+.row { display: grid; grid-template-columns: 1.4fr 1fr 0.8fr 0.8fr 0.6fr; gap: 8px; align-items: center; }
+.header { opacity: 0.8; }
+.row > div, .row input, .row select, .row button {
+  padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: #e6eef8;
+  height: 40px; display: flex; align-items: center;
+}
+.row input { width: 100%; }
+.row .grade { justify-content: center; font-weight: 700; }
+.row.header > div { height: 40px; display: flex; align-items: center; }
+.del { padding: 8px 10px; }
+.results { display: flex; gap: 16px; font-weight: 700; }
+.reveal { opacity: 0; transform: translateY(8px); transition: opacity .4s ease, transform .4s ease; }
+.reveal.show { opacity: 1; transform: none; }

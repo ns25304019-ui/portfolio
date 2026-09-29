@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashain - Nepal's Biggest Festival | ダサイン - ネパール最大の祭り | Nepal Festival Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #e53e3e;
+      --accent-color: #f6ad55;
+      --text-primary: #2d3748;
+      --text-secondary: #4a5568;
+      --background-light: #f7fafc;
+      --background-white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--background-light);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    header {
+      background: var(--background-white);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--background-light);
+      color: var(--primary-color);
+    }
+
+    .nav-button {
+      background: var(--secondary-color);
+      color: white !important;
+      padding: 0.75rem 1.5rem !important;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav-button:hover {
+      background: #c53030;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #ff9ff3 100%);
+      color: white;
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('images/dashain.jpg') center center / cover no-repeat;
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Main Content */
+    main {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .content-section {
+      margin-top: 3rem;
+    }
+
+    .content-item {
+      background: var(--background-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .content-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .content-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .item-image {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .item-content {
+      padding: 2rem;
+      flex: 1;
+    }
+
+    .item-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .item-description {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .back-button {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.125rem;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: #2c5282;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-text {
+      opacity: 0.8;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .content-item {
+        flex-direction: column !important;
+      text-align: center;
+    }
+
+      .item-image {
+        width: 100%;
+        height: 250px;
+      }
+
+      .item-content {
+        padding: 1.5rem;
+      }
+
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 2rem 0;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Focus states */
+    a:focus,
+    button:focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+
+    /* Image Modal */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content {
+      position: relative;
+      margin: auto;
+      padding: 0;
+      width: 80%;
+      max-width: 800px;
+      max-height: 80vh;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: zoomIn 0.3s ease;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s ease;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .item-image {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .item-image:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: translateY(-50%) scale(0.8); opacity: 0; }
+      to { transform: translateY(-50%) scale(1); opacity: 1; }
+    }
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(100px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-to-top:hover {
+      background: #2c5282;
+      transform: translateY(0) scale(1.1);
+      box-shadow: 0 8px 25px rgba(26, 54, 93, 0.4);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:active {
+      transform: translateY(0) scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" title="Back to Top">
+    <span>↑</span>
+  </button>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="images/map.jpg" alt="Nepal Culture Guide Logo" class="logo">
+          <div class="brand">
+            <div class="brand-title">Nepal Festival Guide | ネパール祭りガイド</div>
+            <div class="brand-subtitle">Discover Traditional Celebrations | 伝統的な祝祭を発見</div>
+          </div>
+        </div>
+        
+        <nav>
+          <ul>
+            <li><a href="index.html">Home | ホーム</a></li>
+            <li><a href="festival.html">All Festivals | すべての祭り</a></li>
+            <li><a href="help.html" class="nav-button">Help | ヘルプ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <div class="hero-content fade-in-up">
+        <h1>Dashain - Nepal's Biggest Festival | ダサイン - ネパール最大の祭り</h1>
+        <p><strong>English:</strong> Celebrate Nepal's most important festival with family gatherings, traditional foods, and the victory of good over evil<br><br><strong>日本語:</strong> 家族の集まり、伝統的な食べ物、そして善の悪に対する勝利と共に、ネパールの最も重要な祭りを祝いましょう</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <h2 class="section-title">About Dashain | ダサインについて</h2>
+        <p class="section-subtitle"><strong>English:</strong> Dashain is Nepal's biggest and most important festival, celebrated for 15 days to honor Goddess Durga and her victory over the demon Mahishasura.<br><br><strong>日本語:</strong> ダサインはネパール最大で最も重要な祭りで、女神ドゥルガと彼女の悪魔マヒシャスラに対する勝利を称えるために15日間祝われます。</p>
+      </div>
+      
+      <div class="content-section">
+        <div class="content-item fade-in-up">
+          <img src="images/das1.png" alt="Dashain Festival" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Day 1: Ghatasthapana (घटस्थापना)</h3>
+            <p class="item-description"><strong>English:</strong> The first day marks the beginning of Dashain. A sacred pot (kalash) is filled with holy water and barley seeds are planted in it. This symbolizes the start of the festival and the worship of Goddess Durga.<br><br><strong>日本語:</strong> ダサインの最初の日。聖なる水で満たされた神聖な壺（カラシュ）が設置され、大麦の種が植えられます。これは祭りの始まりと女神ドゥルガの崇拝を象徴します。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/das2.png" alt="Day 2-6" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Day 2-6: Dwitiya to Sasthi (द्वितीया से षष्ठी)</h3>
+            <p class="item-description"><strong>English:</strong> These days involve daily prayers and offerings to Goddess Durga. The barley seeds planted on the first day begin to sprout, symbolizing prosperity and growth. Families prepare for the main celebrations.<br><br><strong>日本語:</strong> これらの日々は女神ドゥルガへの日々の祈りと供物を含みます。最初の日に植えられた大麦の種が発芽し始め、繁栄と成長を象徴します。家族は主要な祝祭の準備をします。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/das3.png" alt="Day 7: Fulpati" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Day 7: Fulpati (फूलपाती)</h3>
+            <p class="item-description"><strong>English:</strong> Fulpati means "flowers and leaves." On this day, a procession carries flowers, leaves, and other sacred items from Gorkha to Kathmandu. The royal family traditionally receives these offerings at Hanuman Dhoka Palace.<br><br><strong>日本語:</strong> フルパティは「花と葉」を意味します。この日、行列がゴルカからカトマンズまで花、葉、その他の神聖な品物を運びます。王室は伝統的にハヌマン・ドカ宮殿でこれらの供物を受け取ります。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/das4.png" alt="Day 8: Maha Asthami" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Day 8: Maha Asthami (महा अष्टमी)</h3>
+            <p class="item-description"><strong>English:</strong> This is the day of intense worship of Goddess Durga. Animal sacrifices are made in temples, and families prepare special meals. It's considered one of the most important days of Dashain.<br><br><strong>日本語:</strong> これは女神ドゥルガの激しい崇拝の日です。寺院で動物の生贄が捧げられ、家族は特別な食事を準備します。ダサインの最も重要な日の一つと考えられています。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/das5.png" alt="Day 9: Maha Navami" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Day 9: Maha Navami (महा नवमी)</h3>
+            <p class="item-description"><strong>English:</strong> The ninth day is dedicated to Goddess Siddhidatri. Vehicles, tools, and machinery are worshipped as they are considered essential for daily life. This day is also known as "Vehicle Day."<br><br><strong>日本語:</strong> 9日目は女神シッディダトリに捧げられます。車両、工具、機械が崇拝され、それらは日常生活に不可欠とみなされます。この日は「車両の日」としても知られています。</p>
+          </div>
+    </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/das6.png" alt="Day 10: Vijaya Dashami" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Day 10: Vijaya Dashami (विजया दशमी)</h3>
+            <p class="item-description"><strong>English:</strong> The most important day of Dashain! This celebrates Goddess Durga's victory over the demon Mahishasura. Elders give tika (red vermillion) and jamara (sprouted barley) to younger family members, along with blessings and money.<br><br><strong>日本語:</strong> ダサインの最も重要な日！これは女神ドゥルガの悪魔マヒシャスラに対する勝利を祝います。年長者は若い家族にティカ（赤い朱）とジャマラ（発芽した大麦）を与え、祝福とお金を渡します。</p>
+          </div>
+        </div>
+        
+        <div class="content-item fade-in-up">
+          <img src="images/das7.png" alt="Day 11-15" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Day 11-15: Ekadashi to Purnima (एकादशी से पूर्णिमा)</h3>
+            <p class="item-description"><strong>English:</strong> These final days are for visiting relatives and friends, exchanging tika and blessings, and enjoying family gatherings. People travel across Nepal to meet their loved ones and strengthen family bonds.<br><br><strong>日本語:</strong> これらの最終日は親戚や友人を訪問し、ティカと祝福を交換し、家族の集まりを楽しむためのものです。人々は愛する人に会い、家族の絆を強めるためにネパール中を旅します。</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Special Foods Section -->
+      <div class="section-header fade-in-up" style="margin-top: 4rem;">
+        <h2 class="section-title">Dashain Special Foods</h2>
+        <p class="section-subtitle">Traditional delicacies prepared during Dashain celebrations</p>
+      </div>
+      
+     
+    </div>
+        
+
+        <div class="content-item fade-in-up">
+          <img src="images/masu.jpg" alt="Meat Dishes" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Meat Dishes (मासु को परिकार)</h3>
+            <p class="item-description"><strong>English:</strong> Various meat preparations including goat, chicken, and buffalo meat. These are prepared with special spices and served as the main course during Dashain family gatherings.<br><br><strong>日本語:</strong> ヤギ、鶏、水牛の肉など、様々な肉料理。特別なスパイスで調理され、ダサインの家族の集まりでメインコースとして提供されます。</p>
+          </div>
+  </div>
+        
+        
+        <div class="content-item fade-in-up">
+          <img src="images/khaja.jpg" alt="Khaja" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Khaja (खाजा)</h3>
+            <p class="item-description"><strong>English:</strong> A flaky, crispy pastry made from flour and ghee. Khaja is a popular snack during Dashain, often served with tea and enjoyed by people of all ages.<br><br><strong>日本語:</strong> 小麦粉とギーで作られたサクサクのペストリー。カジャはダサイン中の人気のおやつで、紅茶と一緒に提供され、すべての年齢の人に愛されています。</p>
+  </div>
+  </div>
+        
+
+        <div class="content-item fade-in-up">
+          <img src="images/selrotio.jpg" alt="Sel Roti Variations" class="item-image">
+          <div class="item-content">
+            <h3 class="item-title">Sel Roti Variations (सेल रोटीका प्रकार)</h3>
+            <p class="item-description"><strong>English:</strong> Different variations of sel roti including plain, sweet, and savory versions. Some families add sesame seeds, coconut, or other ingredients to create unique flavors.<br><br><strong>日本語:</strong> プレーン、甘い、塩味など、セルロティの様々なバリエーション。一部の家族はゴマ、ココナッツ、その他の材料を加えて独特の味を作ります。</p>
+  </div>
+  </div>
+  </div>
+      
+      <div class="back-button">
+        <a href="festival.html" class="back-link">
+          ← Back to All Festivals | すべての祭りに戻る
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">&copy; 2025 Nepal Festival Guide. GROUP-I</p>
+        <p class="footer-text">Discovering the heart of Nepalese culture through its festivals.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button Script -->
+  <script>
+    // Back to Top Button functionality
+    function initBackToTop() {
+      const backToTopButton = document.getElementById('backToTop');
+      
+      if (!backToTopButton) return;
+
+      // Show/hide button based on scroll position
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('show');
+        } else {
+          backToTopButton.classList.remove('show');
+        }
+      });
+
+      // Smooth scroll to top when clicked
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initBackToTop);
+  </script>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="image-modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img class="modal-image" id="modalImage" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    // Get the modal
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementsByClassName('close')[0];
+
+    // Get all images with click functionality
+    const images = document.querySelectorAll('.item-image');
+
+    // Add click event to all images
+    images.forEach(img => {
+      img.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalImg.src = this.src;
+        modalImg.alt = this.alt;
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      });
+    });
+
+    // Close modal when clicking the X
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    });
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+      }
+    });
+  </script>
+</body>
+</html>

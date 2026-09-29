@@ -3,155 +3,261 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>シャルマ ニラジュ — 就職活動用ポートフォリオ</title>
-    <meta name="theme-color" content="#071026" />
+    <title>シャルマ ニラジュ — Portfolio</title>
+    <meta name="description" content="ネパール出身、東京で学ぶITエンジニアの卵。シャルマ ニラジュのポートフォリオ。" />
+    <meta property="og:title" content="シャルマ ニラジュ — Portfolio" />
+    <meta property="og:description" content="コツコツが勝つコツ。Kathmandu → Tokyo, IT engineer in the making." />
+    <meta property="og:image" content="images/niraj-sakura.jpg" />
+    <meta name="theme-color" content="#f4f0e8" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317140f'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-size='40' fill='%23f4f0e8'%3EN%3C/text%3E%3Ccircle cx='48' cy='46' r='5' fill='%23c8102e'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script>
+      // テーマを先に適用して、読み込み時のチラつきを防ぐ
+      (function () {
+        try {
+          var t = localStorage.getItem("site-theme");
+          if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme", t);
+          var l = localStorage.getItem("site-lang");
+          if (l === "en") document.documentElement.setAttribute("lang", "en");
+        } catch (e) {}
+      })();
+    </script>
     <script src="script.js" defer></script>
   </head>
-  <body data-theme="dark">
-    <div class="bg-shapes" aria-hidden="true">
-      <canvas id="bgCanvas"></canvas>
-      <div class="blob b1"></div>
-      <div class="blob b2"></div>
-    </div>
+  <body>
+    <a class="skip" href="#main" data-i18n="skip">本文へスキップ</a>
 
-    <div class="container">
-      <header>
-        <div class="brand">
-          <div class="logo">N</div>
-          <span id="brandText">シャルマ ニラジュ — 就職活動用ポートフォリオ</span>
+    <!-- ========== NAV ========== -->
+    <header class="nav" id="nav">
+      <a class="nav__brand" href="#top" aria-label="Top">
+        <span class="mark">N<i></i></span>
+        <span class="nav__name" data-i18n="navName">シャルマ ニラジュ</span>
+      </a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#about" data-i18n="navAbout">自己紹介</a>
+        <a href="#works" data-i18n="navWorks">作品</a>
+        <a href="#skills" data-i18n="navSkills">スキル</a>
+        <a href="#contact" data-i18n="navContact">連絡</a>
+      </nav>
+      <div class="nav__tools">
+        <div class="seg" role="group" aria-label="Language">
+          <button type="button" data-lang="jp" aria-pressed="true">JP</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>
-        <div class="controls">
-          <label for="lang" class="visually-hidden">言語</label>
-          <select id="lang">
-            <option value="jp">日本語</option>
-            <option value="en">English</option>
-          </select>
-          <button id="themeToggle">ライト</button>
-          <label for="bgSelect" class="visually-hidden">背景</label>
-          <select id="bgSelect" aria-label="背景テーマ">
-            <option value="particles">パーティクル</option>
-          </select>
-          <label for="bgSpeed" class="visually-hidden">速度</label>
-          <input id="bgSpeed" type="range" min="1" max="10" step="1" value="5" aria-label="速度" />
-          <label for="bgIntensity" class="visually-hidden">強度</label>
-          <input id="bgIntensity" type="range" min="1" max="10" step="1" value="6" aria-label="強度" />
-          <a id="resumeBtn" class="chip" href="images/resume.pdf" target="_blank" rel="noopener">履歴書(PDF)</a>
-        </div>
-      </header>
+        <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+        </button>
+      </div>
+    </header>
 
-      <section class="hero">
-        <main class="card reveal">
-          <h1 id="heroTitle">
-            <span class="nameWrap"
-              ><span id="nameText" class="nameTxt"></span
-              ><span class="cursor" aria-hidden="true"></span
-            ></span>
-            <span style="font-size: 20px" aria-hidden="true">👋</span>
-          </h1>
-          <div class="underline" aria-hidden="true"></div>
-          <p class="lead" id="heroLead">
-            基礎を丁寧に学び、小さな作品を積み重ねています。興味はウェブ制作・プログラミング・ネットワーク基礎です。
+    <main id="main">
+      <!-- ========== HERO ========== -->
+      <section class="hero" id="top">
+        <div class="hero__text">
+          <p class="eyebrow">
+            <span class="dot-live" aria-hidden="true"></span>
+            <span data-i18n="eyebrow">2027年卒・ITエンジニア志望 — 就職活動中</span>
           </p>
 
-          <div id="socials">
-            <a
-              class="chip"
-              id="chipGithub"
-              href="https://github.com/ns25304019-ui"
-              target="_blank"
-              rel="noopener"
-              >GitHub</a
-            >
-            <a
-              class="chip"
-              id="chipFacebook"
-              href="https://www.facebook.com/profile.php?id=100067397425781"
-              target="_blank"
-              rel="noopener"
-              >Facebook</a
-            >
-            <a class="chip" id="chipEmail" href="mailto:ns25304019@ga.ttc.ac.jp"
-              >Email</a
-            >
+          <h1 class="hero__title" id="heroTitle" data-i18n="heroTitle">
+            コツコツが<br />勝つコツ<span class="red">。</span>
+          </h1>
+
+          <p class="hero__en" data-i18n="heroSub">
+            <em>Small steps, every day</em> — from Kathmandu to Tokyo.
+          </p>
+
+          <p class="hero__lead" data-i18n="heroLead">
+            はじめまして、<strong>シャルマ ニラジュ</strong>です。ネパールから来日し、日本語をゼロから学び、いまは東京テクニカルカレッジ情報処理科でプログラミングを勉強しています。授業の外でも、小さな作品をひとつずつ自分で作っています。
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--ink" href="#works">
+              <span data-i18n="ctaWorks">作品を見る</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </a>
+            <a class="btn btn--line" href="images/resume.pdf" target="_blank" rel="noopener">
+              <span data-i18n="ctaResume">履歴書 PDF</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <figure class="hero__photo">
+          <div class="polaroid">
+            <img src="images/niraj-sakura.jpg" alt="桜の下に立つシャルマ ニラジュ" width="900" height="1200" data-i18n-alt="photoAlt" />
+            <figcaption data-i18n="photoCap">東京の春 🌸</figcaption>
+          </div>
+          <svg class="stamp" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="circ" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0" /></defs>
+            <circle cx="100" cy="100" r="96" class="stamp__bg" />
+            <text><textPath href="#circ">NEPAL → JAPAN · IT ENGINEER IN THE MAKING · </textPath></text>
+            <circle cx="100" cy="100" r="30" class="stamp__sun" />
+          </svg>
+        </figure>
+
+        <dl class="facts">
+          <div><dt data-i18n="fSchool">所属</dt><dd data-i18n="fSchoolV">東京テクニカルカレッジ<br />情報処理科 2年</dd></div>
+          <div><dt data-i18n="fGrad">卒業見込</dt><dd>2027.03</dd></div>
+          <div><dt data-i18n="fLang">言語</dt><dd data-i18n="fLangV">日本語 · English · नेपाली</dd></div>
+          <div class="facts__clock">
+            <dt data-i18n="fTime">いまの時刻</dt>
+            <dd>
+              <span><b id="clockTokyo">--:--</b> <small data-i18n="tokyo">東京</small></span>
+              <span><b id="clockKtm">--:--</b> <small data-i18n="ktm">カトマンズ</small></span>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ========== MARQUEE ========== -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>HTML</span><i>✦</i><span>CSS</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Java</span><i>✦</i><span>Servlet</span><i>✦</i><span>C</span><i>✦</i><span>Oracle SQL</span><i>✦</i><span>Networking</span><i>✦</i><span>Git</span><i>✦</i>
+          <span>HTML</span><i>✦</i><span>CSS</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Java</span><i>✦</i><span>Servlet</span><i>✦</i><span>C</span><i>✦</i><span>Oracle SQL</span><i>✦</i><span>Networking</span><i>✦</i><span>Git</span><i>✦</i>
+        </div>
+      </div>
+
+      <!-- ========== ABOUT ========== -->
+      <section class="section" id="about">
+        <header class="section__head reveal">
+          <span class="section__no">01</span>
+          <h2 data-i18n="aboutTitle">自己紹介</h2>
+          <span class="section__en">About</span>
+        </header>
+
+        <div class="about">
+          <div class="about__story reveal">
+            <p class="about__big" data-i18n="aboutBig">
+              日本に来たばかりの頃は、授業の日本語も専門用語もほとんど分かりませんでした。
+            </p>
+            <p data-i18n="aboutP1">
+              それでも毎日少しずつ復習し、分からないことは先生や友人に質問し続けました。気づけば理解できる範囲が広がり、今ではクラスで責任を持って課題やグループ活動を進められるようになりました。
+            </p>
+            <p data-i18n="aboutP2">
+              プログラミングも同じです。すぐに分からなくても、調べて、試して、また調べる。作るときはいつも「<strong>どうすればもっと使いやすくなるか</strong>」を考えるようにしています。
+            </p>
+            <p data-i18n="aboutP3">
+              目標は、日本のIT企業で経験を積み、<strong>人々の生活を便利にするシステムやアプリ</strong>を作れるエンジニアになることです。
+            </p>
           </div>
 
-          <section style="margin-top: 18px">
-            <h2 id="studyPlanTitle">1年生の勉強プラン（例）</h2>
-            <div class="card" style="margin-top: 8px">
-              <ul
-                id="studyList"
-                style="margin: 0 0 8px 18px; color: var(--muted)"
-              ></ul>
-              <p class="muted" id="studyNote">
-                今は基礎を固めて、作品を少しずつ増やすフェーズです。良い習慣を持つことが大事。
-              </p>
-            </div>
-          </section>
-        </main>
+          <ol class="timeline reveal" aria-label="Timeline">
+            <li><span class="tl__y">2002</span><span class="tl__t" data-i18n="tl1">ネパールで生まれる</span></li>
+            <li><span class="tl__y">2022.04</span><span class="tl__t" data-i18n="tl2">来日。日本語学校で日本語を学び始める</span></li>
+            <li><span class="tl__y">2025.04</span><span class="tl__t" data-i18n="tl3">東京テクニカルカレッジ 情報処理科 入学</span></li>
+            <li><span class="tl__y">2025–26</span><span class="tl__t" data-i18n="tl4">C・Java・SQL・Webを学びながら、6つの作品を自主制作</span></li>
+            <li class="is-next"><span class="tl__y">2027.03</span><span class="tl__t" data-i18n="tl5">卒業見込 → ITエンジニアとして社会へ</span></li>
+          </ol>
+        </div>
 
-        <aside class="reveal">
-          <div class="card">
-            <div class="avatar">
-              <img
-                id="profileImg"
-                src="images/img.JPG"
-                alt="profile"
-                onerror="this.style.display='none';this.parentNode.textContent='N';this.parentNode.style.fontSize='64px';this.parentNode.style.color='var(--text)';"
-              />
-            </div>
-            <div style="margin-top: 10px">
-              役職: <strong id="roleText">情報処理科 1年生（2年制）</strong>
-            </div>
-            <div class="muted" style="margin-top: 6px" id="schoolText">
-              学校: 専門学校東京テクニカルカレッジ／情報処理科
+        <div class="traits">
+          <article class="trait reveal">
+            <span class="trait__k">01</span>
+            <h3 data-i18n="tr1h">コツコツ続ける</h3>
+            <p data-i18n="tr1p">毎日少しずつ積み重ねる。日本語もプログラミングも、この方法で苦手を得意に変えてきました。</p>
+          </article>
+          <article class="trait reveal">
+            <span class="trait__k">02</span>
+            <h3 data-i18n="tr2h">責任感</h3>
+            <p data-i18n="tr2p">任されたことは最後までやり切る。チームの中で、安心して任せてもらえる人でいたいです。</p>
+          </article>
+          <article class="trait reveal">
+            <span class="trait__k">03</span>
+            <h3 data-i18n="tr3h">使う人の目線</h3>
+            <p data-i18n="tr3p">ただ動くだけでなく、「もっと使いやすくするには？」を考えて作ります。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== WORKS ========== -->
+      <section class="section" id="works">
+        <header class="section__head reveal">
+          <span class="section__no">02</span>
+          <h2 data-i18n="worksTitle">作品</h2>
+          <span class="section__en">Works</span>
+        </header>
+        <p class="section__intro reveal" data-i18n="worksIntro">
+          すべてHTML / CSS / JavaScriptで、ゼロから自分で作りました。クリックすると実際に動かせます。
+        </p>
+        <div class="works" id="worksList"></div>
+      </section>
+
+      <!-- ========== SKILLS ========== -->
+      <section class="section" id="skills">
+        <header class="section__head reveal">
+          <span class="section__no">03</span>
+          <h2 data-i18n="skillsTitle">スキル</h2>
+          <span class="section__en">Skills</span>
+        </header>
+        <div class="skills-wrap">
+          <div class="skills reveal" id="skillsList"></div>
+          <aside class="now reveal">
+            <h3 data-i18n="nowTitle">いま学んでいること</h3>
+            <ul id="studyList"></ul>
+            <p class="now__note" data-i18n="nowNote">基礎を固めながら、作品を少しずつ増やしています。</p>
+          </aside>
+        </div>
+        <p class="skills__legend reveal" data-i18n="skillsLegend">● = 自己評価（5段階）。学生として正直に付けています。</p>
+      </section>
+
+      <!-- ========== CONTACT ========== -->
+      <section class="section contact" id="contact">
+        <div class="contact__inner reveal">
+          <div class="contact__left">
+            <span class="section__no">04</span>
+            <h2 class="contact__title" data-i18n="contactTitle">一緒に<br />働きませんか<span class="red">？</span></h2>
+            <p data-i18n="contactLead">面談・インターン・会社説明会のご案内など、お気軽にご連絡ください。</p>
+            <a class="contact__mail" href="mailto:ns25304019@ga.ttc.ac.jp">ns25304019@ga.ttc.ac.jp</a>
+            <div class="contact__links">
+              <a class="chip" href="https://github.com/ns25304019-ui" target="_blank" rel="noopener">GitHub ↗</a>
+              <a class="chip" href="https://www.facebook.com/profile.php?id=100067397425781" target="_blank" rel="noopener">Facebook ↗</a>
+              <a class="chip" href="images/resume.pdf" target="_blank" rel="noopener" data-i18n="chipResume">履歴書 PDF ↗</a>
             </div>
           </div>
-        </aside>
-      </section>
 
-      <section class="reveal" id="aboutSection">
-        <h2 id="aboutTitle">自己紹介</h2>
-        <div class="card" id="aboutCard"></div>
-      </section>
-
-      <section class="reveal">
-        <h2 id="skillsTitle">スキル</h2>
-        <div class="skills" id="skillsList" style="margin-top: 8px"></div>
-      </section>
-
-      <section class="reveal">
-        <h2 id="projectsTitle">はじめての作品（例）</h2>
-        <div class="projects" id="projectsList" style="margin-top: 8px"></div>
-      </section>
-
-      <section class="reveal">
-        <h2 id="contactTitle">連絡(デモ)</h2>
-        <div class="card" style="margin-top: 8px">
-          <form id="contactForm" novalidate>
-            <input id="nameField" type="text" placeholder="お名前" required />
-            <input id="subjectField" type="text" placeholder="件名" />
-            <textarea
-              id="messageField"
-              rows="4"
-              placeholder="メッセージ"
-            ></textarea>
-            <button type="submit" id="submitBtn">送信</button>
-            <div
-              id="formStatus"
-              style="margin-top: 8px; font-size: 13px; opacity: 0.95"
-            ></div>
+          <form class="form" id="contactForm" novalidate>
+            <div class="form__id">
+              <img src="images/img.JPG" alt="" width="56" height="56" />
+              <div>
+                <strong data-i18n="formTo">宛先：シャルマ ニラジュ</strong>
+                <small data-i18n="formHint">送信するとメールアプリが開きます</small>
+              </div>
+            </div>
+            <label>
+              <span data-i18n="fName">お名前・会社名</span>
+              <input id="nameField" type="text" autocomplete="name" required />
+            </label>
+            <label>
+              <span data-i18n="fSubject">件名</span>
+              <input id="subjectField" type="text" />
+            </label>
+            <label>
+              <span data-i18n="fMsg">メッセージ</span>
+              <textarea id="messageField" rows="4"></textarea>
+            </label>
+            <button class="btn btn--red" type="submit">
+              <span data-i18n="fSend">メールを作成する</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <p class="form__status" id="formStatus" role="status"></p>
           </form>
         </div>
       </section>
+    </main>
 
-      <footer class="reveal">
-        © <span id="year"></span> <span id="footerName">シャルマニラジュ</span>
-      </footer>
-    </div>
+    <footer class="footer">
+      <p>© <span id="year"></span> Sharma Niraj</p>
+      <p data-i18n="footerMade">東京で、HTML・CSS・JavaScriptを使って手作り。</p>
+      <a href="#top" data-i18n="toTop">↑ トップへ</a>
+    </footer>
   </body>
 </html>

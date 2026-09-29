@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help - Nepal Festival Guide | ヘルプ - ネパール祭りガイド</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #e53e3e;
+      --accent-color: #f6ad55;
+      --text-primary: #2d3748;
+      --text-secondary: #4a5568;
+      --background-light: #f7fafc;
+      --background-white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--background-light);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    header {
+      background: var(--background-white);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--background-light);
+      color: var(--primary-color);
+    }
+
+    .nav-button {
+      background: var(--secondary-color);
+      color: white !important;
+      padding: 0.75rem 1.5rem !important;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav-button:hover {
+      background: #c53030;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Main Content */
+    main {
+      padding: 3rem 0;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .help-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .help-card {
+      background: var(--background-white);
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .help-card:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .help-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .back-button {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.125rem;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: #2c5282;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .help-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--accent-color), #ed8936);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .help-content-text {
+      flex: 1;
+    }
+
+    .help-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .help-description {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .contact-section {
+      background: var(--background-white);
+      padding: 3rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      padding: 1.5rem;
+      background: var(--background-light);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .contact-item h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-item p {
+      color: var(--text-secondary);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-text {
+      opacity: 0.8;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .help-content {
+        gap: 1.5rem;
+      }
+
+      .help-card {
+        flex-direction: column !important;
+      text-align: center;
+        gap: 1.5rem;
+      }
+
+      .help-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 1.5rem;
+      }
+
+      .help-title {
+        font-size: 1.25rem;
+      }
+
+      .help-description {
+        font-size: 1rem;
+      }
+
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-title {
+        font-size: 1.75rem;
+      }
+
+      .nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .help-card {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Simple hover effects */
+    .help-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Focus states */
+    a:focus,
+    button:focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(100px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-to-top:hover {
+      background: #2c5282;
+      transform: translateY(0) scale(1.1);
+      box-shadow: 0 8px 25px rgba(26, 54, 93, 0.4);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:active {
+      transform: translateY(0) scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" title="Back to Top">
+    <span>↑</span>
+  </button>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="images/map.jpg" alt="Nepal Culture Guide Logo" class="logo">
+          <div class="brand">
+            <div class="brand-title">Nepal Festival Guide</div>
+            <div class="brand-subtitle">Discover Traditional Celebrations</div>
+          </div>
+        </div>
+        
+        <nav>
+          <ul>
+            <li><a href="index.html">Home | ホーム</a></li>
+            <li><a href="festival.html">All Festivals | すべての祭り</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">Help & Support | ヘルプ & サポート</h1>
+        <p class="page-subtitle"><strong>English:</strong> Get assistance with navigating our festival guide and learn more about Nepal's cultural celebrations.<br><br><strong>日本語:</strong> 祭りガイドのナビゲーションのサポートを受け、ネパールの文化的祝祭についてもっと学びましょう。</p>
+      </div>
+      
+      <div class="help-content">
+        <div class="help-card">
+          <div class="help-icon">🏠</div>
+          <div class="help-content-text">
+            <h3 class="help-title">How to Use the Homepage | ホームページの使い方</h3>
+            <p class="help-description"><strong>English:</strong> The homepage is your gateway to exploring Nepal's festivals. Use the "All Festivals" link to browse all available festivals, or explore the "Traditional Festivals", "Cultural Cuisine", and "Bilingual Guide" sections for specific information. Each section provides detailed insights into Nepal's rich cultural heritage.<br><br><strong>日本語:</strong> ホームページはネパールの祭りを探索するための入り口です。「すべての祭り」リンクを使用して利用可能なすべての祭りを閲覧するか、「伝統的な祭り」、「文化的料理」、「バイリンガルガイド」セクションを探索して特定の情報を取得してください。各セクションはネパールの豊かな文化的遺産について詳細な洞察を提供します。</p>
+          </div>
+        </div>
+        
+        <div class="help-card">
+          <div class="help-icon">🗺️</div>
+          <div class="help-content-text">
+            <h3 class="help-title">Navigation Guide | ナビゲーションガイド</h3>
+            <p class="help-description"><strong>English:</strong> Learn how to navigate through our festival pages and find the information you're looking for quickly and easily.<br><br><strong>日本語:</strong> 祭りページをナビゲートする方法を学び、探している情報を素早く簡単に見つけましょう。</p>
+          </div>
+        </div>
+        
+        <div class="help-card">
+          <div class="help-icon">🎭</div>
+          <div class="help-content-text">
+            <h3 class="help-title">Festival Information | 祭り情報</h3>
+            <p class="help-description"><strong>English:</strong> Discover detailed information about each festival, including traditions, foods, and cultural significance.<br><br><strong>日本語:</strong> 伝統、食べ物、文化的意義を含む各祭りについての詳細な情報を発見してください。</p>
+          </div>
+        </div>
+        
+        <div class="help-card">
+          <div class="help-icon">🍽️</div>
+          <div class="help-content-text">
+            <h3 class="help-title">Traditional Foods | 伝統料理</h3>
+            <p class="help-description"><strong>English:</strong> Explore the traditional foods associated with each festival and learn about their cultural importance.<br><br><strong>日本語:</strong> 各祭りに関連する伝統料理を探求し、その文化的意義について学びましょう。</p>
+          </div>
+        </div>
+        
+        <div class="help-card">
+          <div class="help-icon">📱</div>
+          <div class="help-content-text">
+            <h3 class="help-title">Mobile Friendly | モバイル対応</h3>
+            <p class="help-description"><strong>English:</strong> Our website is fully responsive and works perfectly on all devices - desktop, tablet, and mobile.<br><br><strong>日本語:</strong> 当サイトは完全にレスポンシブで、デスクトップ、タブレット、モバイルなどすべてのデバイスで完璧に動作します。</p>
+          </div>
+        </div>
+        
+        <div class="help-card">
+          <div class="help-icon">🌐</div>
+          <div class="help-content-text">
+            <h3 class="help-title">Bilingual Support | バイリンガルサポート</h3>
+            <p class="help-description"><strong>English:</strong> All content is available in both English and Japanese to serve our international audience.<br><br><strong>日本語:</strong> 国際的な視聴者にサービスを提供するため、すべてのコンテンツが英語と日本語の両方で利用できます。</p>
+          </div>
+        </div>
+        
+        <div class="help-card">
+          <div class="help-icon">❓</div>
+          <div class="help-content-text">
+            <h3 class="help-title">FAQ | よくある質問</h3>
+            <p class="help-description"><strong>English:</strong> Find answers to frequently asked questions about Nepal's festivals and cultural traditions.<br><br><strong>日本語:</strong> ネパールの祭りと文化的伝統についてのよくある質問への回答を見つけてください。</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-section">
+        <h2 class="contact-title">Contact Us | お問い合わせ</h2>
+        <p><strong>English:</strong> Have questions or need additional help? We're here to assist you in learning about Nepal's rich cultural heritage.<br><br><strong>日本語:</strong> ご質問や追加のサポートが必要ですか？ネパールの豊かな文化遺産について学ぶお手伝いをいたします。</p>
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <h3>Email Support | メールサポート</h3>
+            <p>ns25304019@ga.ttc.ac.jp</p>
+          </div>
+          <div class="contact-item">
+            <h3>Cultural Questions | 文化に関する質問</h3>
+            <p>ns25304019@ga.ttc.ac.jp</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="back-button">
+        <a href="index.html" class="back-link">
+          ← Back to Home | ホームに戻る
+        </a>
+      </div>
+  </div>
+</main>
+
+<footer>
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">&copy; 2025 Nepal Festival Guide. GROUP-I</p>
+        <p class="footer-text">Discovering the heart of Nepalese culture through its festivals.</p>
+      </div>
+    </div>
+</footer>
+
+<script>
+  // Back to Top Button functionality
+  function initBackToTop() {
+    const backToTopButton = document.getElementById('backToTop');
+    
+    if (!backToTopButton) return;
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+      } else {
+        backToTopButton.classList.remove('show');
+      }
+    });
+
+    // Smooth scroll to top when clicked
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', initBackToTop);
+</script>
+</body>
+</html>

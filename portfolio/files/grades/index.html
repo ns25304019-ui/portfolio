@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>成績計算</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="bgCanvas"></canvas>
+    <div class="wrap">
+      <header class="head">
+        <h1>成績計算</h1>
+        <a href="../index.html" class="backBTN">Back</a>
+      </header>
+      <main class="main">
+        <div class="controls">
+          <button id="addRow">行を追加</button>
+          <button id="clearRows">クリア</button>
+          <button id="calcBtn">計算</button>
+        </div>
+        <div class="table">
+          <div class="row header">
+            <div>科目</div>
+            <div>点数(0-100)</div>
+            <div>単位</div>
+            <div>評価</div>
+            <div></div>
+          </div>
+          <div id="rows"></div>
+        </div>
+        <div class="results">
+          <div>平均点 <span id="avg">0</span></div>
+          <div>加重平均点 <span id="wavg">0</span></div>
+          <div>GPA <span id="gpa">0.00</span></div>
+        </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
