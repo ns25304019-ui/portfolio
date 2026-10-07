@@ -17,7 +17,7 @@ const TEXT = {
     navContact: "連絡",
     eyebrow: "2027年卒・ITエンジニア志望 — 就職活動中",
     heroTitle: "コツコツが<br />勝つコツ<span class=\"red\">。</span>",
-    heroSub: "<em>Small steps, every day</em> — from Kathmandu to Tokyo.",
+    heroSub: "<em>small steps, every day</em> — from Kathmandu to Tokyo.",
     heroLead:
       "はじめまして、<strong>シャルマ ニラジュ</strong>です。ネパールから来日し、日本語をゼロから学び、いまは東京テクニカルカレッジ情報処理科でプログラミングを勉強しています。授業の外でも、小さな作品をひとつずつ自分で作っています。",
     ctaWorks: "作品を見る",
@@ -89,7 +89,7 @@ const TEXT = {
     navContact: "Contact",
     eyebrow: "Class of 2027 · Aspiring IT engineer — open to offers",
     heroTitle: "Small steps,<br />every day<span class=\"red\">.</span>",
-    heroSub: "<em>コツコツが勝つコツ</em> — from Kathmandu to Tokyo.",
+    heroSub: "<em>Small steps, every day</em> — from Kathmandu to Tokyo.",
     heroLead:
       "Hi, I'm <strong>Sharma Niraj</strong>. I came to Japan from Nepal, learned Japanese from zero, and now study programming in the Information Processing course at Tokyo Technical College. Outside class, I build small projects one by one.",
     ctaWorks: "See my work",
